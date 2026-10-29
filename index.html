@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Новый сайт ffm.by</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;600&display=swap">
+<style>
+/* Раскладка: одна колонка-«стенд»; в каждом варианте ряд телефонов и ряд окон компьютера; на телефоне ряды листаются вбок */
+:root {
+  --bg: #f1f3f0;
+  --panel: #ffffff;
+  --ink: #1a1d1c;
+  --mute: #5c6460;
+  --line: #d8dcd7;
+  --accent: #2b4034;
+  --on-accent: #ffffff;
+  --bezel: #16191a;
+  --scrim: rgba(12, 14, 13, .9);
+  --on-scrim: #ffffff;
+  --display: 'Unbounded', 'Arial Black', Arial, sans-serif;
+  --body: 'Golos Text', 'Segoe UI', Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131615; --panel: #1b1f1d; --ink: #e8ece9; --mute: #9aa39e; --line: #2c3330;
+    --accent: #9fc6b0; --on-accent: #10231a; --bezel: #050606; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #131615; --panel: #1b1f1d; --ink: #e8ece9; --mute: #9aa39e; --line: #2c3330;
+  --accent: #9fc6b0; --on-accent: #10231a; --bezel: #050606; color-scheme: dark;
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body { background: var(--bg); color: var(--ink); font: 400 16px/1.55 var(--body); }
+.page {
+  max-width: 1180px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 56px;
+}
+p { margin: 0; }
+.eyebrow { font: 600 12px/1.3 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--mute); }
+h1 { font: 600 clamp(28px, 6.2vw, 54px)/1.1 var(--display); letter-spacing: -.01em; text-wrap: balance; margin: 12px 0 0; }
+h2 { font: 600 clamp(22px, 4vw, 32px)/1.15 var(--display); text-wrap: balance; margin: 0; }
+.lead { max-width: 62ch; color: var(--mute); margin-top: 16px; font-size: 17px; }
+.strip { display: grid; grid-template-columns: repeat(30, 1fr); height: 18px; margin-top: 28px; border-radius: 4px; overflow: hidden; }
+.strip i { display: block; }
+.strip-cap { font-size: 12.5px; color: var(--mute); margin-top: 8px; }
+
+.choose { display: grid; gap: 12px; margin-top: 28px; }
+.pick { display: flex; gap: 16px; align-items: center; padding: 16px 18px; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); color: inherit; text-decoration: none; min-width: 0; }
+.pick b { display: block; font: 600 17px/1.25 var(--body); }
+.pick small { display: block; color: var(--mute); font-size: 14px; margin-top: 3px; }
+.num { font: 600 34px/1 var(--display); color: var(--accent); min-width: 1.1em; text-align: center; }
+
+.variant { margin-top: 64px; padding-top: 28px; border-top: 1px solid var(--line); }
+.v-head { display: flex; gap: 18px; align-items: flex-start; }
+.v-head > div { min-width: 0; }
+.num.big { font-size: clamp(56px, 12vw, 96px); line-height: .9; }
+.v-head p { color: var(--mute); margin-top: 10px; max-width: 62ch; }
+.row-t { font: 600 12.5px/1 var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--mute); margin: 32px 0 12px; }
+.tap { font-size: 13.5px; color: var(--mute); margin-top: 6px; }
+.row { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; }
+.shot { flex: 0 0 auto; scroll-snap-align: start; margin: 0; min-width: 0; }
+.phones .shot { width: min(70vw, 300px); }
+.desks .shot { width: min(86vw, 560px); }
+button.frame { display: block; width: 100%; max-width: 100%; padding: 0; font: inherit; color: inherit; cursor: zoom-in; }
+.phone { aspect-ratio: 390 / 844; border: 10px solid var(--bezel); border-radius: 34px; overflow: hidden; background: var(--bezel); }
+.phone img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.desk { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--panel); }
+.desk .bar { display: flex; gap: 6px; padding: 8px 10px; background: var(--line); }
+.desk .bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--mute); opacity: .55; }
+.desk img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+figcaption { margin-top: 10px; font-size: 14px; }
+figcaption b { display: block; font-weight: 600; font-size: 15px; }
+figcaption span { color: var(--mute); }
+.frame:focus-visible, .pick:focus-visible, .btn:focus-visible, .lb-x:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.block { margin-top: 64px; padding-top: 28px; border-top: 1px solid var(--line); }
+.list { display: grid; gap: 12px; padding: 0; margin: 18px 0 0; list-style: none; max-width: 72ch; }
+.list li { padding-left: 24px; position: relative; }
+.list li::before { content: ""; position: absolute; left: 0; top: .5em; width: 11px; height: 11px; border-radius: 3px; background: var(--accent); }
+.list.soft li::before { background: var(--line); }
+
+.reply { margin-top: 64px; padding: 24px; border-radius: 16px; background: var(--panel); border: 1px solid var(--line); }
+.reply p { color: var(--mute); margin-top: 10px; max-width: 62ch; }
+.tpl { font: 500 15px/1.65 var(--body); background: var(--bg); border: 1px dashed var(--line); border-radius: 10px; padding: 14px 16px; white-space: pre-wrap; margin: 16px 0; max-width: 520px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: var(--on-accent); border: 0; border-radius: 10px; padding: 12px 18px; font: 600 15px/1.2 var(--body); cursor: pointer; }
+.note { font-size: 14px; color: var(--accent); margin-top: 10px; }
+footer { margin-top: 40px; font-size: 13px; color: var(--mute); }
+
+.lb { position: fixed; inset: 0; z-index: 50; background: var(--scrim); color: var(--on-scrim); display: flex; flex-direction: column;
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.lb-top { display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 10px max(16px, env(safe-area-inset-right, 0px)) 10px max(16px, env(safe-area-inset-left, 0px)); }
+.lb-top b { font-weight: 600; min-width: 0; }
+.lb-x { background: var(--panel); color: var(--ink); border: 0; border-radius: 999px; padding: 9px 16px; font: 600 14px/1 var(--body); cursor: pointer; flex: none; }
+.lb-body { flex: 1; overflow: auto; display: flex; justify-content: center;
+  padding: 0 max(16px, env(safe-area-inset-right, 0px)) 16px max(16px, env(safe-area-inset-left, 0px)); }
+.lb-body img { width: 100%; max-width: var(--lbw, 600px); height: auto; align-self: flex-start; border-radius: 8px; }
+
+@media (min-width: 720px) {
+  .choose { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1000px) {
+  .row { display: grid; grid-template-columns: repeat(3, 1fr); overflow: visible; padding-bottom: 0; }
+  .phones .shot, .desks .shot { width: auto; }
+  .phones { gap: 40px; padding-inline: 24px; }
+}
+</style>
+
+</head>
+<body>
+<main class="page">
+  <header>
+    <p class="eyebrow">Фабрика Фурнитуры · наброски сайта · 27 октября 2026</p>
+    <h1>Новый сайт: два варианта на выбор</h1>
+    <p class="lead">Так может выглядеть сайт на телефоне и на компьютере. Это наброски, а не готовый дизайн: название FABRIC рабочее, логотипа пока нет. Ткани, фото и цифры настоящие — из текущего каталога: 54 коллекции, 861 оттенок.</p>
+    <div class="strip" aria-hidden="true"><i style="background:#d3c8c6"></i><i style="background:#c3afa8"></i><i style="background:#cba998"></i><i style="background:#af9288"></i><i style="background:#b28771"></i><i style="background:#85604e"></i><i style="background:#7c6056"></i><i style="background:#9e6d63"></i><i style="background:#c97873"></i><i style="background:#953d55"></i><i style="background:#cea274"></i><i style="background:#a6a994"></i><i style="background:#71a3b5"></i><i style="background:#1b4460"></i><i style="background:#c0b9bc"></i><i style="background:#999899"></i><i style="background:#28282c"></i><i style="background:#473931"></i><i style="background:#b8b7ad"></i><i style="background:#a79da8"></i><i style="background:#95b6bd"></i><i style="background:#552d19"></i><i style="background:#2b4034"></i><i style="background:#5d6c64"></i><i style="background:#858b87"></i><i style="background:#95a3a3"></i><i style="background:#4e5c5f"></i><i style="background:#373b3e"></i><i style="background:#262c31"></i><i style="background:#202b2f"></i></div>
+    <p class="strip-cap">Полоса — 30 оттенков велюра Brabus, цвета сняты с фото каталога</p>
+    <nav class="choose" aria-label="Варианты">
+      <a class="pick" href="#v1"><span class="num">1</span><span><b>Как furman, но для тканей</b><small>Светло и спокойно: крупные фото, заголовки с засечками</small></span></a>
+      <a class="pick" href="#v2"><span class="num">2</span><span><b>Быстрый каталог</b><small>Поиск по названию и номеру, фильтры, плотная сетка оттенков</small></span></a>
+    </nav>
+  </header>
+
+  <section id="v1" class="variant">
+    <div class="v-head"><span class="num big">1</span><div>
+      <h2>Как furman, но для тканей</h2>
+      <p>Спокойный сайт по образцу furman.by: много воздуха, крупные фото тканей, тёмный блок с подбором под задачу. На странице коллекции — все оттенки с номерами и примерка выбранного оттенка на диване.</p>
+    </div></div>
+    <p class="row-t">На телефоне</p>
+    <p class="tap">Нажмите на экран — откроется страница целиком</p>
+    <div class="row phones">
+      <figure class="shot"><button class="frame phone" type="button" data-full="img/v1_home_phone_page.jpg" data-w="420px" data-title="Вариант 1 · Главная · телефон"><img src="img/v1_home_phone_screen.jpg" alt="Вариант 1, главная на телефоне"></button>
+        <figcaption><b>Главная</b><span>Новинка на светлом фоне, виды тканей, подбор под задачу, новинки</span></figcaption></figure>
+      <figure class="shot"><button class="frame phone" type="button" data-full="img/v1_collection_phone_page.jpg" data-w="420px" data-title="Вариант 1 · Коллекция Brabus · телефон"><img src="img/v1_collection_phone_screen.jpg" alt="Вариант 1, коллекция Brabus на телефоне"></button>
+        <figcaption><b>Коллекция Brabus</b><span>Крупное фото оттенка, 30 оттенков с номерами, «Заказать в Viber», примерка на диване</span></figcaption></figure>
+      <figure class="shot"><button class="frame phone" type="button" data-full="img/v1_select_phone_page.jpg" data-w="420px" data-title="Вариант 1 · Подбор ткани · телефон"><img src="img/v1_select_phone_screen.jpg" alt="Вариант 1, подбор ткани на телефоне"></button>
+        <figcaption><b>Подбор ткани</b><span>Три вопроса — и 9 подходящих коллекций с пометками, чем они подходят</span></figcaption></figure>
+    </div>
+    <p class="row-t">На компьютере</p>
+    <div class="row desks">
+      <figure class="shot"><button class="frame desk" type="button" data-full="img/v1_home_desktop_page.jpg" data-w="1200px" data-title="Вариант 1 · Главная · компьютер"><span class="bar"><i></i><i></i><i></i></span><img src="img/v1_home_desktop_screen.jpg" alt="Вариант 1, главная на компьютере" loading="lazy"></button>
+        <figcaption><b>Главная</b></figcaption></figure>
+      <figure class="shot"><button class="frame desk" type="button" data-full="img/v1_collection_desktop_page.jpg" data-w="1200px" data-title="Вариант 1 · Коллекция Brabus · компьютер"><span class="bar"><i></i><i></i><i></i></span><img src="img/v1_collection_desktop_screen.jpg" alt="Вариант 1, коллекция Brabus на компьютере" loading="lazy"></button>
+        <figcaption><b>Коллекция Brabus</b></figcaption></figure>
+      <figure class="shot"><button class="frame desk" type="button" data-full="img/v1_select_desktop_page.jpg" data-w="1200px" data-title="Вариант 1 · Подбор ткани · компьютер"><span class="bar"><i></i><i></i><i></i></span><img src="img/v1_select_desktop_screen.jpg" alt="Вариант 1, подбор ткани на компьютере" loading="lazy"></button>
+        <figcaption><b>Подбор ткани</b></figcaption></figure>
+    </div>
+  </section>
+
+  <section id="v2" class="variant">
+    <div class="v-head"><span class="num big">2</span><div>
+      <h2>Быстрый каталог</h2>
+      <p>Сайт как рабочий инструмент для студий и мебельщиков: сразу поиск по названию и номеру цвета, фильтры по виду ткани, задаче и цвету. Оттенки — плотной сеткой с крупными номерами, внизу экрана — «Заказать в Viber» и «Образец».</p>
+    </div></div>
+    <p class="row-t">На телефоне</p>
+    <p class="tap">Нажмите на экран — откроется страница целиком</p>
+    <div class="row phones">
+      <figure class="shot"><button class="frame phone" type="button" data-full="img/v2_home_phone_page.jpg" data-w="420px" data-title="Вариант 2 · Каталог · телефон"><img src="img/v2_home_phone_screen.jpg" alt="Вариант 2, каталог на телефоне" loading="lazy"></button>
+        <figcaption><b>Каталог</b><span>Поиск по названию и номеру, фильтры по виду, задаче и цвету, новинки сеткой</span></figcaption></figure>
+      <figure class="shot"><button class="frame phone" type="button" data-full="img/v2_collection_phone_page.jpg" data-w="420px" data-title="Вариант 2 · Коллекция Brabus · телефон"><img src="img/v2_collection_phone_screen.jpg" alt="Вариант 2, коллекция Brabus на телефоне" loading="lazy"></button>
+        <figcaption><b>Коллекция Brabus</b><span>Сетка оттенков с номерами, ключевые цифры, внизу — «Заказать в Viber» и «Образец»</span></figcaption></figure>
+      <figure class="shot"><button class="frame phone" type="button" data-full="img/v2_select_phone_page.jpg" data-w="420px" data-title="Вариант 2 · Подбор · телефон"><img src="img/v2_select_phone_screen.jpg" alt="Вариант 2, подбор на телефоне" loading="lazy"></button>
+        <figcaption><b>Подбор</b><span>Фильтры по задаче, стойкости и свойствам — «Подходит 7 из 54»</span></figcaption></figure>
+    </div>
+    <p class="row-t">На компьютере</p>
+    <div class="row desks">
+      <figure class="shot"><button class="frame desk" type="button" data-full="img/v2_home_desktop_page.jpg" data-w="1200px" data-title="Вариант 2 · Каталог · компьютер"><span class="bar"><i></i><i></i><i></i></span><img src="img/v2_home_desktop_screen.jpg" alt="Вариант 2, каталог на компьютере" loading="lazy"></button>
+        <figcaption><b>Каталог</b></figcaption></figure>
+      <figure class="shot"><button class="frame desk" type="button" data-full="img/v2_collection_desktop_page.jpg" data-w="1200px" data-title="Вариант 2 · Коллекция Brabus · компьютер"><span class="bar"><i></i><i></i><i></i></span><img src="img/v2_collection_desktop_screen.jpg" alt="Вариант 2, коллекция Brabus на компьютере" loading="lazy"></button>
+        <figcaption><b>Коллекция Brabus</b></figcaption></figure>
+      <figure class="shot"><button class="frame desk" type="button" data-full="img/v2_select_desktop_page.jpg" data-w="1200px" data-title="Вариант 2 · Подбор · компьютер"><span class="bar"><i></i><i></i><i></i></span><img src="img/v2_select_desktop_screen.jpg" alt="Вариант 2, подбор на компьютере" loading="lazy"></button>
+        <figcaption><b>Подбор</b></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Общее в обоих вариантах</h2>
+    <ul class="list">
+      <li>Номер оттенка — крупно: по нему заказывают, например «Brabus&nbsp;25 — 13,7&nbsp;м».</li>
+      <li>Кнопка «Заказать в Viber» открывает чат с готовой строкой вида «Brabus&nbsp;23 — …&nbsp;м», поэтому заказы приходят в одном виде.</li>
+      <li>Подбор под задачу по свойствам из каталога: дом с кошкой или собакой — 12 коллекций, кафе и офис — 19, детская — 27, солнечная комната — 6.</li>
+      <li>Всё на настоящих данных: 54 коллекции, 861 оттенок, фото и значки свойств из текущего каталога.</li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2>Что здесь условно</h2>
+    <ul class="list soft">
+      <li>Название FABRIC — рабочее, логотипа пока нет.</li>
+      <li>Диван в примерке — рисунок, обтянутый фото оттенка.</li>
+      <li>Кабинет дилера с наличием на складе только упомянут — это следующий этап.</li>
+      <li>Фото взяты с текущего сайта, они небольшие; для нового сайта нужны крупнее.</li>
+      <li>Показаны по три экрана каждого варианта; остальные страницы — после выбора.</li>
+    </ul>
+  </section>
+
+  <section class="reply">
+    <h2>Как ответить</h2>
+    <p>Напишите тому, кто прислал ссылку, какой вариант ближе и что поменять. Можно приложить скриншот экрана.</p>
+    <div class="tpl" id="tpl">Вариант: 1 или 2
+Что нравится:
+Что поменять:
+Чего не хватает:</div>
+    <button class="btn" id="copy" type="button">Скопировать шаблон ответа</button>
+    <p class="note" id="copied" hidden>Шаблон скопирован — вставьте его в сообщение.</p>
+  </section>
+
+  <footer>Наброски подготовлены 26–27 октября 2026 года по данным открытого каталога catalog.ffm.by.</footer>
+</main>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lb-t" hidden>
+  <div class="lb-top"><b id="lb-t"></b><button class="lb-x" id="lb-x" type="button">Закрыть</button></div>
+  <div class="lb-body" id="lb-body"><img id="lb-img" alt=""></div>
+</div>
+
+<script>
+(() => {
+  const lb = document.getElementById('lb');
+  const body = document.getElementById('lb-body');
+  const img = document.getElementById('lb-img');
+  const title = document.getElementById('lb-t');
+  const closeBtn = document.getElementById('lb-x');
+  let opener = null;
+  const close = () => {
+    lb.hidden = true;
+    document.body.style.overflow = '';
+    img.removeAttribute('src');
+    if (opener) opener.focus();
+  };
+  document.querySelectorAll('[data-full]').forEach(btn => btn.addEventListener('click', () => {
+    opener = btn;
+    img.src = btn.dataset.full;
+    img.alt = btn.dataset.title;
+    img.style.setProperty('--lbw', btn.dataset.w || '600px');
+    title.textContent = btn.dataset.title;
+    lb.hidden = false;
+    document.body.style.overflow = 'hidden';
+    body.scrollTop = 0;
+    closeBtn.focus();
+  }));
+  closeBtn.addEventListener('click', close);
+  lb.addEventListener('click', e => { if (e.target === lb || e.target === body) close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !lb.hidden) close(); });
+
+  const tpl = document.getElementById('tpl');
+  const note = document.getElementById('copied');
+  document.getElementById('copy').addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(tpl.textContent);
+      note.textContent = 'Шаблон скопирован — вставьте его в сообщение.';
+    } catch (err) {
+      const range = document.createRange();
+      range.selectNodeContents(tpl);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      note.textContent = 'Текст выделен — скопируйте его вручную.';
+    }
+    note.hidden = false;
+  });
+})();
+</script>
+
+</body>
+</html>
