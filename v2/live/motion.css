@@ -44,3 +44,18 @@ body.motion-enabled .reveal.is-visible{opacity:1;transform:none}
 .demo-toast-acts a{font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid #fff;padding-bottom:4px}
 .demo-toast-acts button{margin-left:auto;border:1px solid #555;background:none;color:#ddd;border-radius:999px;padding:8px 14px;min-height:36px;font:500 13px/1 var(--sans)}
 @media(max-width:899px){.motion-tools .mt-text{display:none}.motion-tools #motion-toggle{padding:0 14px}.motion-dot{margin-right:0}}
+/* iPhone, 30.10.2026: на видео Координатора (iPhone, Safari) первый экран на один кадр пропадал, когда Safari
+   разворачивал панель адреса. На сенсорных экранах убираем тяжёлое: отдельный слой фото на весь экран и смещение
+   фона Brabus на каждом кадре; угасание заголовка — средствами браузера (scroll-driven animation), где они есть.
+   Подложка первого экрана и цвет панели браузера — тёплые тёмные, под тон фото: случайный пропуск кадра не мигает. */
+.stage{background-color:#2a1f18}
+@media (pointer:coarse){
+  .stage .split{will-change:auto;transform:none}
+  .stage-txt{opacity:1;transform:none}
+}
+@keyframes hero-text-out{to{opacity:.45;transform:translate3d(0,-28px,0)}}
+@supports (animation-timeline:scroll()){
+  @media (pointer:coarse) and (prefers-reduced-motion:no-preference){
+    body.motion-enabled .stage-txt{animation:hero-text-out linear both;animation-timeline:scroll(root);animation-range:0 70svh}
+  }
+}
