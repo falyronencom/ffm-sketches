@@ -1,0 +1,116 @@
+/* Живая главная варианта 1 — движение и демонстрационные элементы поверх наброска (base.css = v1b.css).
+   Спокойная «галерея»: появление один раз — только прозрачность и сдвиг, кривая из паспорта стиля; на каждый кадр
+   прокрутки ничего не двигается (урок iPhone, 30.10.2026). Класс html.motion ставится до отрисовки — без мигания. */
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{overflow-x:clip}
+a[href],button{cursor:pointer}
+button,input{font:inherit}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+
+/* шапка: лёгкая тень, когда страница прокручена */
+.hdr{transition:box-shadow .4s ease}
+.hdr.scrolled{box-shadow:0 6px 24px rgba(0,0,0,.06)}
+
+/* первый экран: фото открывается «занавесом», текст проявляется по строке — один раз при загрузке */
+.hero-img{position:relative}
+html.motion .hero-img::after{content:'';position:absolute;inset:0;background:var(--bg2);transform-origin:top;animation:fx-curtain 1.15s cubic-bezier(.22,1,.36,1) .15s both}
+html.motion .hero-img img{animation:fx-settle 1.8s cubic-bezier(.22,1,.36,1) both}
+html.motion .hero-txt>*{animation:fx-rise .9s cubic-bezier(.22,1,.36,1) both}
+html.motion .hero-txt>*:nth-child(1){animation-delay:.45s}
+html.motion .hero-txt>*:nth-child(2){animation-delay:.55s}
+html.motion .hero-txt>*:nth-child(3){animation-delay:.65s}
+html.motion .hero-txt>*:nth-child(4){animation-delay:.75s}
+html.motion .hero-txt>*:nth-child(5){animation-delay:.85s}
+@keyframes fx-curtain{to{transform:scaleY(0)}}
+@keyframes fx-settle{from{transform:scale(1.07)}to{transform:none}}
+@keyframes fx-rise{from{opacity:0;transform:translate3d(0,18px,0)}to{opacity:1;transform:none}}
+
+/* появление при прокрутке: один раз, по очереди внутри группы (--d — задержка) */
+.rv{opacity:1;transform:none}
+html.motion .rv{opacity:0;transform:translate3d(0,22px,0);transition:opacity .8s cubic-bezier(.22,1,.36,1) var(--d,0s),transform .8s cubic-bezier(.22,1,.36,1) var(--d,0s)}
+html.motion .task.rv{transform:translate3d(-18px,0,0)}
+html.motion .rv.in{opacity:1;transform:none}
+html.motion .tasks-img img{transform:scale(1.06);transition:transform 1.8s cubic-bezier(.22,1,.36,1)}
+html.motion .tasks-img.in img{transform:none}
+.stats b{font-variant-numeric:tabular-nums}
+
+/* наведение — только мышь */
+@media (hover:hover) and (pointer:fine){
+  .tile .ph img,.card .ph img,.gallery .ph img{transition:transform .7s cubic-bezier(.22,1,.36,1)}
+  .tile:hover .ph img,.card:hover .ph img,.gallery figure:hover .ph img{transform:scale(1.045)}
+  .btn{transition:background-color .3s ease,color .3s ease,border-color .3s ease}
+  .btn:not(.dark):not(.light):hover{background:var(--ink);color:#fff}
+  .btn.dark:hover{background:#000}
+  .btn.light:hover{background:#fff;color:var(--ink)}
+  .more .i,.btn .i{transition:transform .3s ease}
+  .more:hover .i,.btn:hover .i{transform:translateX(4px)}
+  .task{transition:background-color .3s ease}
+  .task:hover{background:rgba(255,255,255,.05)}
+  .nav a,.dealer,.fcols a{transition:opacity .3s ease}
+  .nav a:hover,.dealer:hover,.fcols a:hover{opacity:.6}
+}
+.btn:active{transform:scale(.98)}
+
+/* телефон: новинки и «ткани в мебели» листаются пальцем вбок */
+@media (max-width:899px){
+  .cards.scroll,.gallery{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-right:20px;padding-bottom:4px}
+  .cards.scroll::-webkit-scrollbar,.gallery::-webkit-scrollbar{display:none}
+  .cards.scroll .card,.gallery figure{scroll-snap-align:start}
+}
+
+/* поиск: в шапке на компьютере — поле с подсказками, на телефоне — панель сверху */
+.search{position:relative;cursor:text}
+.search input{flex:1;border:0;background:transparent;color:var(--ink);font-size:14px;min-width:0;outline:none}
+.search input::placeholder{color:var(--mute)}
+.sr{position:absolute;left:-1px;right:-1px;top:calc(100% + 6px);background:#fff;border:1px solid var(--line);box-shadow:0 12px 30px rgba(0,0,0,.08);list-style:none;margin:0;padding:6px 0;z-index:40}
+.sr[hidden]{display:none}
+.sr a{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:10px 14px;font-size:15px;color:var(--ink)}
+.sr a span{color:var(--mute);font-size:12.5px}
+.sr a:hover,.sr a:focus{background:var(--bg2)}
+.sr .none{padding:10px 14px;font-size:13px;color:var(--mute);line-height:1.4}
+.icon-btn{border:0;background:none;color:inherit;width:40px;height:44px;display:inline-flex;align-items:center;justify-content:center;padding:0}
+.sheet{position:fixed;inset:0 0 auto 0;z-index:45;background:#fff;padding:12px 16px 16px;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+.sheet[hidden]{display:none}
+.sheet .row{display:flex;gap:10px;align-items:center;border:1px solid var(--line);height:50px;padding:0 6px 0 12px}
+.sheet .row .i{width:18px;height:18px}
+.sheet input{flex:1;border:0;background:none;font-size:16px;color:var(--ink);outline:none;min-width:0}
+.sheet .sr{position:static;box-shadow:none;border:0;padding:6px 0 0}
+.sheet-close{border:0;background:none;font-size:14px;color:var(--mute);min-height:44px;padding:0 8px}
+
+/* меню на телефоне */
+.mobile-menu{position:fixed;z-index:45;inset:0;background:#fff;color:var(--ink);padding:96px 24px 40px;overflow:auto}
+.mobile-menu[hidden]{display:none}
+.mobile-menu nav{display:flex;flex-direction:column;gap:22px}
+.mobile-menu nav a{font:400 32px/1.2 var(--serif)}
+.menu-close{position:absolute;right:16px;top:12px;min-width:44px;min-height:44px;border:1px solid var(--line);background:none;font-size:26px;color:var(--ink)}
+.menu-caption{font:600 11px/1.3 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:30px}
+
+/* подсказка вместо страниц, которых в демонстрации нет */
+.demo-toast{position:fixed;z-index:60;left:50%;bottom:max(84px,calc(env(safe-area-inset-bottom) + 72px));transform:translateX(-50%);width:min(92vw,520px);background:#1c1c1c;color:#fff;padding:18px 20px;border-radius:14px;box-shadow:0 10px 40px #0004;font:400 15px/1.5 var(--sans)}
+.demo-toast[hidden]{display:none}
+.demo-toast-acts{display:flex;gap:18px;align-items:center;margin-top:12px}
+.demo-toast-acts a{font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid #fff;padding-bottom:4px}
+.demo-toast-acts button{margin-left:auto;border:1px solid #555;background:none;color:#ddd;border-radius:999px;padding:8px 14px;min-height:36px;font:500 13px/1 var(--sans)}
+.demo-note{margin-top:12px;font-size:12px;color:#8d877f}
+.demo-note a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+
+/* переключатель движения и «наверх» */
+.motion-tools{position:fixed;z-index:50;right:18px;bottom:max(18px,env(safe-area-inset-bottom));display:flex;gap:6px;align-items:center;padding:5px;background:#fffffff2;color:#1a1a1a;border:1px solid #dedbd5;box-shadow:0 4px 24px #0002;border-radius:28px}
+.motion-tools button{border:0;background:transparent;color:inherit;min-height:42px;padding:0 15px;font:500 12px/1.2 var(--sans);border-radius:22px}
+.motion-tools .to-top{padding:0 13px;font-size:18px;border-left:1px solid #dedbd5;border-radius:0}
+.motion-dot{display:inline-block;width:6px;height:6px;background:#668269;border-radius:50%;margin-right:7px;vertical-align:1px}
+html:not(.motion) .motion-dot{background:#999}
+@media (max-width:899px){
+  .motion-tools{right:12px;bottom:max(12px,env(safe-area-inset-bottom))}
+  .motion-tools .mt-text{display:none}
+  .motion-tools #motion-toggle{padding:0 14px}
+  .motion-dot{margin-right:0}
+  .ftr{padding-bottom:100px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:0s!important;animation-delay:0s!important;transition-duration:0s!important;transition-delay:0s!important}
+  html.motion .rv{opacity:1;transform:none}
+  .hero-img::after{display:none}
+}
