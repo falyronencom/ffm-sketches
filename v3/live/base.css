@@ -48,8 +48,11 @@ section{padding:56px 0}
 .hero-tag .lead{font-size:15.5px}
 .hero-acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
 .hero-acts .btn{padding:0 18px}
-.wall{position:relative;line-height:0;background:var(--bg2)}
-.wall img{height:auto}
+/* на телефоне — та же стена 41 x 21, что на компьютере, лентой: её листают пальцем вбок (слово Координатора 30.10.2026) */
+.wall{position:relative;line-height:0;background:var(--bg2);overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scrollbar-width:none}
+.wall::-webkit-scrollbar{display:none}
+.wall img{width:984px;max-width:none;height:auto}
+.wall-hint{font-size:13px;line-height:1.4;color:var(--mute);padding:0 20px 12px}
 
 /* выбор по цвету и кресло-мозаика */
 .cap{color:var(--mute);margin-top:12px;font-size:15px;text-wrap:pretty}
@@ -67,7 +70,7 @@ section{padding:56px 0}
 .chip-sel{font-size:14px;margin-top:10px}
 .bc-pick .more{margin-top:24px}
 .chair{display:grid;grid-template-columns:repeat(20,1fr);grid-template-rows:repeat(16,1fr);aspect-ratio:20/16;max-width:640px;margin:0 auto}
-.chair i{display:block;background-image:var(--wm);background-size:2100% 4100%;background-position:calc(var(--mc) * 100% / 20) calc(var(--mr) * 100% / 40)}
+.chair i{display:block;background-image:var(--wd);background-size:4100% 2100%;background-position:calc(var(--dc) * 100% / 40) calc(var(--dr) * 100% / 20)}
 .chair i.leg{background:var(--ink)}
 
 /* коллекции «хангерами»: бирка и полоса образцов */
@@ -219,10 +222,12 @@ section{padding:56px 0}
   .hero-tag .h1{font-size:76px}
   .hero-tag .lead{font-size:17px;max-width:620px}
   .hero-acts .btn{padding:0 24px}
+  .wall{overflow:hidden}
+  .wall img{width:100%}
+  .wall-hint{display:none}
   .bc-in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);grid-template-areas:"head art" "pick art";column-gap:80px;align-items:start}
   .bc-head{grid-area:head;align-self:end}
   .bc-art{grid-area:art;align-self:center;margin-top:0}
-  .chair i{background-image:var(--wd);background-size:4100% 2100%;background-position:calc(var(--dc) * 100% / 40) calc(var(--dr) * 100% / 20)}
   .bc-pick{grid-area:pick;margin-top:34px}
   .chips{display:grid;grid-template-columns:1fr 1fr;column-gap:28px;border-top:1px solid var(--line)}
   .chip{justify-content:flex-start;gap:10px;border-bottom:1px solid var(--line)}

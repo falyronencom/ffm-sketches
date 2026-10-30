@@ -8,7 +8,6 @@
   const doc = document.documentElement, body = document.body;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const coarse = matchMedia('(pointer: coarse)');
-  const wide = matchMedia('(min-width: 900px)');
   const roomy = matchMedia('(min-width: 1181px)');
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -19,8 +18,8 @@
   const nShade = n => `${n} ${plural(n, 'оттенок', 'оттенка', 'оттенков')}`;
   const ofN = (n, one, many) => `${n} ${n % 10 === 1 && n % 100 !== 11 ? one : many}`;
   const shade = n => { const [coll, label, k] = D.shades[n]; return { coll, label, kind: D.kinds[k], name: `${coll} ${label}` }; };
-  const layout = () => (wide.matches ? 'd' : 'm');
-  const WALL = { d: 'assets/palette/wall_d.jpg', m: 'assets/palette/wall_m.jpg' };
+  const layout = () => 'd'; // одна стена 41 x 21 на всех экранах; на телефоне её листают вбок
+  const WALL = { d: 'assets/palette/wall_d.jpg' };
   let seed = 7;
   const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
   // квадрат образца из картинки стены (та же картинка, что на первом экране, — без лишних загрузок)
@@ -338,12 +337,10 @@
   function paint(key) {
     D.fills[key].forEach((n, i) => {
       if (n < 0) return;
-      const el = cellsEl[i], [dc, dr] = D.pos.d[n], [mc, mr] = D.pos.m[n];
+      const el = cellsEl[i], [dc, dr] = D.pos.d[n];
       el.dataset.n = n;
       el.style.setProperty('--dc', dc);
       el.style.setProperty('--dr', dr);
-      el.style.setProperty('--mc', mc);
-      el.style.setProperty('--mr', mr);
     });
     chair.dataset.fam = key;
     const st = famStat(key), f = D.fams[key];

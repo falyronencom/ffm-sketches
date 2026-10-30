@@ -19,12 +19,11 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 
 /* стена: на компьютере собирается из полосок по 3–7 квадратов, снизу вверх; на сенсорном экране ряды проявляются
    снизу вверх без сдвига (одна картинка, обрезка по шагам) */
-.wall{overflow:hidden}
+@media (min-width:900px){.wall{overflow:hidden}}
 .wall-build{position:absolute;inset:0;z-index:1;pointer-events:none}
 .wall-build i{position:absolute;display:block;background-repeat:no-repeat;animation:fx-drop .62s cubic-bezier(.22,1,.36,1) var(--d,0s) both}
 html.motion:not(.coarse):not(.intro-done) .wall:not(.done) img{opacity:0}
-html.motion.coarse .wall img{animation:fx-rows 1.5s steps(41,end) .2s both}
-@media (min-width:900px){html.motion.coarse .wall img{animation-timing-function:steps(21,end)}}
+html.motion.coarse .wall img{animation:fx-rows 1.3s steps(21,end) .2s both}
 html.motion:not(.coarse) .hero-tag{animation:fx-rise .9s cubic-bezier(.22,1,.36,1) 1.25s both}
 html.motion.coarse .hero-tag>*{animation:fx-rise .8s cubic-bezier(.22,1,.36,1) both}
 html.motion.coarse .hero-tag>*:nth-child(2){animation-delay:.08s}
