@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Новый сайт ffm.by — вариант 3</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;600&display=swap">
+<style>
+/* Вариант 3 набросков («Палитра»): та же раскладка-«стенд», что у страниц вариантов 1 и 2; плюс лист «три варианта рядом» */
+:root {
+  --bg: #f1f3f0;
+  --panel: #ffffff;
+  --ink: #1a1d1c;
+  --mute: #5c6460;
+  --line: #d8dcd7;
+  --accent: #1a1a1a;
+  --on-accent: #ffffff;
+  --bezel: #16191a;
+  --scrim: rgba(12, 14, 13, .9);
+  --on-scrim: #ffffff;
+  --display: 'Unbounded', 'Arial Black', Arial, sans-serif;
+  --body: 'Golos Text', 'Segoe UI', Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131615; --panel: #1b1f1d; --ink: #e8ece9; --mute: #9aa39e; --line: #2c3330;
+    --accent: #e8ece9; --on-accent: #131615; --bezel: #050606; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #131615; --panel: #1b1f1d; --ink: #e8ece9; --mute: #9aa39e; --line: #2c3330;
+  --accent: #e8ece9; --on-accent: #131615; --bezel: #050606; color-scheme: dark;
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body { background: var(--bg); color: var(--ink); font: 400 16px/1.55 var(--body); }
+a { color: var(--ink); text-underline-offset: 4px; }
+.page {
+  max-width: 1180px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 56px;
+}
+p { margin: 0; }
+.eyebrow { font: 600 12px/1.3 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--mute); }
+h1 { font: 600 clamp(28px, 6vw, 52px)/1.1 var(--display); letter-spacing: -.01em; text-wrap: balance; margin: 12px 0 0; }
+h2 { font: 600 clamp(22px, 4vw, 32px)/1.15 var(--display); text-wrap: balance; margin: 0; }
+.lead { max-width: 64ch; color: var(--mute); margin-top: 16px; font-size: 17px; text-wrap: pretty; }
+.prev { display: inline-block; margin-top: 16px; font-weight: 600; }
+.links { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 16px; }
+.links .prev { margin-top: 0; }
+.strip { display: grid; grid-template-columns: repeat(41, 1fr); height: 18px; margin-top: 28px; border-radius: 4px; overflow: hidden; }
+.strip i { display: block; }
+.strip-cap { font-size: 12.5px; color: var(--mute); margin-top: 8px; }
+
+.changes { display: grid; gap: 12px; margin-top: 28px; }
+.change { display: flex; gap: 14px; align-items: flex-start; padding: 16px 18px; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); min-width: 0; }
+.change b { display: block; font: 600 16px/1.3 var(--body); }
+.change span { display: block; color: var(--mute); font-size: 14px; margin-top: 3px; }
+.change .n { font: 600 22px/1 var(--display); color: var(--ink); min-width: 1.2em; }
+
+.block { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--line); }
+.block > p { color: var(--mute); margin-top: 10px; max-width: 64ch; }
+.row-t { font: 600 12.5px/1 var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--mute); margin: 0 0 12px; }
+.tap { font-size: 13.5px; color: var(--mute); margin: -4px 0 12px; }
+.row { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; }
+.shot { flex: 0 0 auto; scroll-snap-align: start; margin: 0; min-width: 0; }
+.phones .shot { width: min(70vw, 300px); }
+.desks .shot { width: min(86vw, 560px); }
+button.frame { display: block; width: 100%; max-width: 100%; padding: 0; font: inherit; color: inherit; cursor: zoom-in; }
+.phone { aspect-ratio: 390 / 844; border: 10px solid var(--bezel); border-radius: 34px; overflow: hidden; background: var(--bezel); }
+.phone img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.desk { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--panel); }
+.desk .bar { display: flex; gap: 6px; padding: 8px 10px; background: var(--line); }
+.desk .bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--mute); opacity: .55; }
+.desk img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+.cmp { margin: 20px 0 0; max-width: 1000px; }
+.cmp .frame { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--panel); }
+.cmp img { display: block; width: 100%; height: auto; }
+figcaption { margin-top: 10px; font-size: 14px; }
+figcaption b { display: block; font-weight: 600; font-size: 15px; }
+figcaption span { color: var(--mute); }
+.frame:focus-visible, .btn:focus-visible, .lb-x:focus-visible, a:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+.list { display: grid; gap: 12px; padding: 0; margin: 18px 0 0; list-style: none; max-width: 72ch; }
+.list li { padding-left: 24px; position: relative; }
+.list li::before { content: ""; position: absolute; left: 0; top: .5em; width: 11px; height: 11px; border-radius: 3px; background: var(--ink); }
+.list.soft li::before { background: var(--line); }
+
+.reply { margin-top: 56px; padding: 24px; border-radius: 16px; background: var(--panel); border: 1px solid var(--line); }
+.reply p { color: var(--mute); margin-top: 10px; max-width: 62ch; }
+.tpl { font: 500 15px/1.65 var(--body); background: var(--bg); border: 1px dashed var(--line); border-radius: 10px; padding: 14px 16px; white-space: pre-wrap; margin: 16px 0; max-width: 520px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: var(--on-accent); border: 0; border-radius: 10px; padding: 12px 18px; font: 600 15px/1.2 var(--body); cursor: pointer; }
+.note { font-size: 14px; color: var(--ink); margin-top: 10px; }
+footer { margin-top: 40px; font-size: 13px; color: var(--mute); }
+footer a { color: var(--mute); }
+
+.lb { position: fixed; inset: 0; z-index: 50; background: var(--scrim); color: var(--on-scrim); display: flex; flex-direction: column;
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.lb-top { display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 10px max(16px, env(safe-area-inset-right, 0px)) 10px max(16px, env(safe-area-inset-left, 0px)); }
+.lb-top b { font-weight: 600; min-width: 0; }
+.lb-x { background: var(--panel); color: var(--ink); border: 0; border-radius: 999px; padding: 9px 16px; font: 600 14px/1 var(--body); cursor: pointer; flex: none; }
+.lb-body { flex: 1; overflow: auto; display: flex; justify-content: center;
+  padding: 0 max(16px, env(safe-area-inset-right, 0px)) 16px max(16px, env(safe-area-inset-left, 0px)); }
+.lb-body img { width: 100%; max-width: var(--lbw, 600px); height: auto; align-self: flex-start; border-radius: 8px; }
+
+@media (min-width: 720px) {
+  .changes { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1000px) {
+  .row { display: grid; grid-template-columns: repeat(3, 1fr); overflow: visible; padding-bottom: 0; }
+  .phones .shot, .desks .shot { width: auto; }
+  .phones { gap: 40px; padding-inline: 24px; }
+}
+</style>
+
+</head>
+<body>
+<main class="page">
+  <header>
+    <p class="eyebrow">Fabric's · наброски сайта · вариант 3 · 30 октября 2026</p>
+    <h1>Сайт Fabric's: вариант 3 — палитра</h1>
+    <p class="lead">Тот же стиль — логотип Fabric's, шрифты Forum и Jost, заказ в Viber в одно касание, — но главное на экране не мебель, а сама ткань и цвет: все 861 оттенок каталога на одной стене, выбор по цвету, оттенки крупно с номерами. Это наброски, а не готовый сайт: три экрана на телефоне и на компьютере. Все ткани и цифры настоящие; сгенерированных картинок здесь нет.</p>
+    <p class="links"><a class="prev" href="live/">Живая главная — пролистайте</a><a class="prev" href="../">Вариант 1</a><a class="prev" href="../v2/">Вариант 2</a></p>
+    <div class="strip" aria-hidden="true"><i style="background:#ddd9cc"></i><i style="background:#c9c8c4"></i><i style="background:#af9f90"></i><i style="background:#b6a999"></i><i style="background:#bba67d"></i><i style="background:#c0b9a5"></i><i style="background:#9c3f2f"></i><i style="background:#7c6056"></i><i style="background:#704c36"></i><i style="background:#694a25"></i><i style="background:#665949"></i><i style="background:#7d6849"></i><i style="background:#675c3f"></i><i style="background:#6b6a5e"></i><i style="background:#943f3d"></i><i style="background:#bc2e50"></i><i style="background:#b77e3a"></i><i style="background:#a38e38"></i><i style="background:#6a6c5e"></i><i style="background:#495f52"></i><i style="background:#43635a"></i><i style="background:#0e706c"></i><i style="background:#027084"></i><i style="background:#4f6472"></i><i style="background:#484234"></i><i style="background:#988e84"></i><i style="background:#938d85"></i><i style="background:#66625c"></i><i style="background:#737d75"></i><i style="background:#93928e"></i><i style="background:#939190"></i><i style="background:#8f8f8f"></i><i style="background:#7b797b"></i><i style="background:#7e7e81"></i><i style="background:#616f72"></i><i style="background:#463c32"></i><i style="background:#262721"></i><i style="background:#2c322c"></i><i style="background:#252525"></i><i style="background:#28282c"></i><i style="background:#232e32"></i></div>
+    <p class="strip-cap">Полоса — по одному оттенку из каждого столбца стены: от белых и бежевых к цветным, серым и чёрным</p>
+    <div class="changes">
+      <div class="change"><span class="n">1</span><div><b>Стена из всех оттенков</b><span>Первый экран — 861 квадрат, разложенный по цвету. Каждый квадрат — фото настоящей ткани: наведите или нажмите — увидите название и номер.</span></div></div>
+      <div class="change"><span class="n">2</span><div><b>Выбор по цвету</b><span>Выберите цвет — из его оттенков соберётся кресло-мозаика; рядом — сколько таких оттенков в каталоге.</span></div></div>
+      <div class="change"><span class="n">3</span><div><b>Коллекции «хангерами»</b><span>Как образцы у дилера: бирка с названием и полоса оттенков с номерами.</span></div></div>
+      <div class="change"><span class="n">4</span><div><b>Оттенки крупно и рядом</b><span>В коллекции — большие квадраты с номерами, сравнение оттенков рядом и похожий цвет в других коллекциях.</span></div></div>
+    </div>
+  </header>
+
+  <section class="block" id="screens">
+    <p class="row-t">На телефоне</p>
+    <p class="tap">Нажмите на экран — откроется страница целиком</p>
+    <div class="row phones">
+      <figure class="shot"><button class="frame phone" type="button" data-full="img/v3_home_phone_page.jpg" data-w="420px" data-title="Главная · телефон"><img src="img/v3_home_phone_screen.jpg" alt="Главная на телефоне"></button>
+        <figcaption><b>Главная</b><span>Стена из 861 оттенка, кресло из образцов выбранного цвета, коллекции «хангерами», Betsy крупным планом</span></figcaption></figure>
+      <figure class="shot"><button class="frame phone" type="button" data-full="img/v3_collection_phone_page.jpg" data-w="420px" data-title="Коллекция Betsy · телефон"><img src="img/v3_collection_phone_screen.jpg" alt="Коллекция Betsy на телефоне"></button>
+        <figcaption><b>Коллекция Betsy</b><span>Букле крупным планом, 15 оттенков большими квадратами, сравнение рядом, похожий цвет в других коллекциях</span></figcaption></figure>
+      <figure class="shot"><button class="frame phone" type="button" data-full="img/v3_select_phone_page.jpg" data-w="420px" data-title="Подбор ткани · телефон"><img src="img/v3_select_phone_screen.jpg" alt="Подбор ткани на телефоне"></button>
+        <figcaption><b>Подбор ткани</b><span>Сначала цвет, потом задача — 30 бежевых оттенков для кафе в 14 коллекциях</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="block">
+    <p class="row-t">На компьютере</p>
+    <div class="row desks">
+      <figure class="shot"><button class="frame desk" type="button" data-full="img/v3_home_desktop_page.jpg" data-w="1200px" data-title="Главная · компьютер"><span class="bar"><i></i><i></i><i></i></span><img src="img/v3_home_desktop_screen.jpg" alt="Главная на компьютере" loading="lazy"></button>
+        <figcaption><b>Главная</b></figcaption></figure>
+      <figure class="shot"><button class="frame desk" type="button" data-full="img/v3_collection_desktop_page.jpg" data-w="1200px" data-title="Коллекция Betsy · компьютер"><span class="bar"><i></i><i></i><i></i></span><img src="img/v3_collection_desktop_screen.jpg" alt="Коллекция Betsy на компьютере" loading="lazy"></button>
+        <figcaption><b>Коллекция Betsy</b></figcaption></figure>
+      <figure class="shot"><button class="frame desk" type="button" data-full="img/v3_select_desktop_page.jpg" data-w="1200px" data-title="Подбор ткани · компьютер"><span class="bar"><i></i><i></i><i></i></span><img src="img/v3_select_desktop_screen.jpg" alt="Подбор ткани на компьютере" loading="lazy"></button>
+        <figcaption><b>Подбор ткани</b></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Три варианта рядом</h2>
+    <p>Первые экраны главной: вариант 1 — спокойная галерея, вариант 2 — фото во всю ширину, вариант 3 — палитра. Варианты 1 и 2 целиком — <a href="../">по первой ссылке</a> и <a href="../v2/">по второй</a>.</p>
+    <figure class="cmp"><button class="frame" type="button" data-full="img/compare_v1_v2_v3.jpg" data-w="1600px" data-title="Варианты 1, 2 и 3"><img src="img/compare_v1_v2_v3.jpg" alt="Первые экраны вариантов 1, 2 и 3 рядом" loading="lazy"></button></figure>
+  </section>
+
+  <section class="block">
+    <h2>Что здесь условно</h2>
+    <ul class="list soft">
+      <li>Цвет квадратов — с фото каталога. На экране он может отличаться от ткани: перед заказом — образец.</li>
+      <li>Оттенки разложены по цветам автоматически, по фото; на настоящем сайте группы проверит менеджер. Жаккарды с рисунком (Comfort FL, Favorit FL) в выбор по цвету не входят — для них отдельный пункт «С рисунком».</li>
+      <li>Кресло-мозаика — рисунок из квадратов образцов, а не фото мебели.</li>
+      <li>Показаны три экрана; остальные страницы — следующим шагом. Кабинет дилера и «Моя подборка» пока только кнопки.</li>
+      <li>Фото оттенков — из текущего каталога, крупное фото Betsy — от Fabric's; число дилеров — с текущего сайта.</li>
+    </ul>
+  </section>
+
+  <section class="reply">
+    <h2>Как ответить</h2>
+    <p>Напишите тому, кто прислал ссылку, какой вариант ближе, что нравится и что поменять. Можно приложить скриншот экрана.</p>
+    <div class="tpl" id="tpl">Какой вариант ближе — 1, 2 или 3:
+Что нравится:
+Что поменять:
+Чего не хватает:</div>
+    <button class="btn" id="copy" type="button">Скопировать шаблон ответа</button>
+    <p class="note" id="copied" hidden>Шаблон скопирован — вставьте его в сообщение.</p>
+  </section>
+
+  <footer>Наброски подготовлены 26–30 октября 2026 года по данным открытого каталога catalog.ffm.by и фото Fabric's. Вариант 1 — <a href="../">по первой ссылке</a>, вариант 2 — <a href="../v2/">по второй</a>.</footer>
+</main>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lb-t" hidden>
+  <div class="lb-top"><b id="lb-t"></b><button class="lb-x" id="lb-x" type="button">Закрыть</button></div>
+  <div class="lb-body" id="lb-body"><img id="lb-img" alt=""></div>
+</div>
+
+<script>
+(() => {
+  const lb = document.getElementById('lb');
+  const body = document.getElementById('lb-body');
+  const img = document.getElementById('lb-img');
+  const title = document.getElementById('lb-t');
+  const closeBtn = document.getElementById('lb-x');
+  let opener = null;
+  const close = () => {
+    lb.hidden = true;
+    document.body.style.overflow = '';
+    img.removeAttribute('src');
+    if (opener) opener.focus();
+  };
+  document.querySelectorAll('[data-full]').forEach(btn => btn.addEventListener('click', () => {
+    opener = btn;
+    img.src = btn.dataset.full;
+    img.alt = btn.dataset.title;
+    img.style.setProperty('--lbw', btn.dataset.w || '600px');
+    title.textContent = btn.dataset.title;
+    lb.hidden = false;
+    document.body.style.overflow = 'hidden';
+    body.scrollTop = 0;
+    closeBtn.focus();
+  }));
+  closeBtn.addEventListener('click', close);
+  lb.addEventListener('click', e => { if (e.target === lb || e.target === body) close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !lb.hidden) close(); });
+
+  const tpl = document.getElementById('tpl');
+  const note = document.getElementById('copied');
+  document.getElementById('copy').addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(tpl.textContent);
+      note.textContent = 'Шаблон скопирован — вставьте его в сообщение.';
+    } catch (err) {
+      const range = document.createRange();
+      range.selectNodeContents(tpl);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      note.textContent = 'Текст выделен — скопируйте его вручную.';
+    }
+    note.hidden = false;
+  });
+})();
+</script>
+
+</body>
+</html>
