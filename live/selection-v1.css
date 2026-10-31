@@ -1,0 +1,7 @@
+/* Quiet gallery: warm matte image, generous white margins and fine rules. */
+[data-ffm-variant=v1] .ffm-detail{width:min(1120px,calc(100% - 80px))}
+[data-ffm-variant=v1] .ffm-visual{padding:28px 28px 0}
+[data-ffm-variant=v1] .ffm-visual>img{object-fit:contain;min-height:400px}
+[data-ffm-variant=v1] .ffm-visual figcaption{padding:18px 0;background:transparent}
+[data-ffm-variant=v1] .ffm-info{padding-top:52px}
+@media(max-width:800px){[data-ffm-variant=v1] .ffm-detail{width:calc(100% - 24px)}[data-ffm-variant=v1] .ffm-visual{padding:20px 20px 0}[data-ffm-variant=v1] .ffm-visual>img{min-height:0;height:260px}[data-ffm-variant=v1] .ffm-info{padding-top:24px}}

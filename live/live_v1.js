@@ -50,9 +50,11 @@
   $$('a:not([href])').forEach(a => {
     const t = a.textContent.trim();
     if (a.classList.contains('logo')) return a.setAttribute('href', '#top');
-    if (a.classList.contains('tile')) return demo(a, `Раздел «${$('b', a).textContent}» (${$('span', a).textContent}) — следующим шагом. Экраны коллекции и подбора — в набросках варианта 1.`);
-    if (a.classList.contains('card')) return demo(a, collectionText($('.nm', a).textContent));
+    if (a.classList.contains('tile')) { a.href = '#catalog'; a.dataset.catalog = a.classList.contains('all') ? 'all' : $('b', a).textContent; a.setAttribute('aria-haspopup','dialog'); a.setAttribute('aria-controls','ffm-catalog'); return; }
+    if (a.classList.contains('card')) { a.href = '#collection'; a.dataset.collection = $('.nm', a).textContent; return; }
     if (a.classList.contains('task')) return demo(a, `Подбор «${$('b', a).textContent}» — ${$('em', a).textContent}. Как устроен подбор — в набросках варианта 1.`);
+    if (['Каталог', 'Ткани', 'Весь каталог'].includes(t)) { a.href = '#catalog'; a.dataset.catalog = 'all'; a.setAttribute('aria-haspopup','dialog'); a.setAttribute('aria-controls','ffm-catalog'); return; }
+    if (['Велюр', 'Замша', 'Рогожка', 'Экокожа', 'Искусственный мех', 'Шенилл', 'Премиум'].includes(t)) { a.href = '#catalog'; a.dataset.catalog = t; return; }
     if (SAYS[t]) return demo(a, SAYS[t]);
     if (ROUTES[t]) return a.setAttribute('href', ROUTES[t]);
     return demo(a, LATER);
@@ -85,7 +87,7 @@
       b.textContent = n;
       s.textContent = k;
       a.append(b, s);
-      demo(a, collectionText(n));
+      a.href = '#collection'; a.dataset.collection = n; a.dataset.shade = value.trim().match(/\d+$/)?.[0] || '';
       li.append(a);
       list.append(li);
     }
@@ -117,7 +119,7 @@
       if (e.key === 'Escape') { input.value = ''; fill(list, ''); }
       if (e.key === 'Enter') { e.preventDefault(); $('a', list)?.click(); }
     });
-    document.addEventListener('click', e => { if (!box.contains(e.target)) list.hidden = true; });
+    document.addEventListener('click', e => { if (!box.contains(e.target) && !e.target.closest('.ffm-dialog')) list.hidden = true; });
   }
 
   // телефон: значки поиска и меню становятся кнопками
@@ -150,7 +152,7 @@
     btn.addEventListener('click', () => { sheet.hidden = false; input.focus(); });
     close.addEventListener('click', hide);
     input.addEventListener('input', () => fill(list, input.value));
-    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !sheet.hidden) hide(); });
+    document.addEventListener('keydown', e => { if (document.querySelector('.ffm-dialog[open]')) return; if (e.key === 'Escape' && !sheet.hidden) hide(); });
   }
   if (menuIcon) {
     const btn = toButton(menuIcon, 'Открыть меню');
@@ -162,7 +164,7 @@
     menu.setAttribute('aria-modal', 'true');
     menu.setAttribute('aria-label', 'Навигация');
     menu.innerHTML = '<button class="menu-close" type="button" aria-label="Закрыть меню">×</button><p class="menu-caption">Fabric&#39;s · мебельные ткани</p>'
-      + '<nav><a href="#kinds">Виды тканей</a><a href="#tasks">Под вашу задачу</a><a href="#news">Новинки</a><a href="#inuse">Ткани в мебели</a>'
+      + '<nav><a href="#catalog" data-catalog="all" aria-haspopup="dialog" aria-controls="ffm-catalog">Каталог тканей</a><a href="#tasks">Под вашу задачу</a><a href="#news">Новинки</a><a href="#inuse">Ткани в мебели</a>'
       + '<a href="#dealers">Образцы вживую</a><a href="#contacts">Контакты</a></nav>';
     body.append(menu);
     const closeBtn = $('.menu-close', menu);
@@ -170,7 +172,7 @@
     btn.addEventListener('click', () => { menu.hidden = false; btn.setAttribute('aria-expanded', 'true'); closeBtn.focus(); });
     closeBtn.addEventListener('click', () => hide(true));
     $$('a', menu).forEach(a => a.addEventListener('click', () => hide(false)));
-    document.addEventListener('keydown', e => {
+    document.addEventListener('keydown', e => { if (document.querySelector('.ffm-dialog[open]')) return;
       if (menu.hidden) return;
       if (e.key === 'Escape') hide(true);
       if (e.key === 'Tab') {
@@ -180,7 +182,7 @@
       }
     });
   }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !toast.hidden) toast.hidden = true; });
+  document.addEventListener('keydown', e => { if (document.querySelector('.ffm-dialog[open]')) return; if (e.key === 'Escape' && !toast.hidden) toast.hidden = true; });
 
   // шапка: тень, когда страница прокручена (наблюдатель за меткой в начале страницы, без обработчика прокрутки)
   const mark = document.createElement('div');

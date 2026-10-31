@@ -1,0 +1,2573 @@
+{
+  "name": "Дымчато-синий с бирюзовыми акцентами",
+  "cells": 244,
+  "shades": 19,
+  "collections": 14,
+  "accentCells": 14,
+  "accentPercent": 5.7,
+  "swatches": [
+    {
+      "n": 266,
+      "name": "Galaxy Lite 21",
+      "hex": "#8fa1a8",
+      "cells": 8
+    },
+    {
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "cells": 50
+    },
+    {
+      "n": 243,
+      "name": "Galaxy 20",
+      "hex": "#6496a0",
+      "cells": 2
+    },
+    {
+      "n": 620,
+      "name": "Rich 20",
+      "hex": "#467d80",
+      "cells": 8
+    },
+    {
+      "n": 320,
+      "name": "Hennessy 15",
+      "hex": "#7f8b93",
+      "cells": 2
+    },
+    {
+      "n": 566,
+      "name": "Space 6",
+      "hex": "#62818a",
+      "cells": 14
+    },
+    {
+      "n": 208,
+      "name": "Ember 15",
+      "hex": "#6b838a",
+      "cells": 18
+    },
+    {
+      "n": 465,
+      "name": "Tiffany 6",
+      "hex": "#80969c",
+      "cells": 12
+    },
+    {
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "cells": 27
+    },
+    {
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "cells": 32
+    },
+    {
+      "n": 425,
+      "name": "Onyx 15",
+      "hex": "#548680",
+      "cells": 3
+    },
+    {
+      "n": 71,
+      "name": "Avatr 22",
+      "hex": "#475e6a",
+      "cells": 22
+    },
+    {
+      "n": 556,
+      "name": "Smart 8",
+      "hex": "#4b7172",
+      "cells": 1
+    },
+    {
+      "n": 427,
+      "name": "Onyx 17",
+      "hex": "#475b6d",
+      "cells": 13
+    },
+    {
+      "n": 220,
+      "name": "Ember 27",
+      "hex": "#586573",
+      "cells": 5
+    },
+    {
+      "n": 365,
+      "name": "Loco 19",
+      "hex": "#3f5365",
+      "cells": 5
+    },
+    {
+      "n": 35,
+      "name": "Aura 25",
+      "hex": "#324f5e",
+      "cells": 4
+    },
+    {
+      "n": 317,
+      "name": "Hennessy 12",
+      "hex": "#354c59",
+      "cells": 12
+    },
+    {
+      "n": 147,
+      "name": "Chef 12",
+      "hex": "#284551",
+      "cells": 6
+    }
+  ],
+  "rearrangement": {
+    "pairsBefore": 291,
+    "pairsAfter": 33,
+    "changedCells": 148,
+    "maxWeightedColorShift": 11.33,
+    "countsPreserved": true
+  },
+  "placement": [
+    {
+      "x": 4,
+      "y": 0,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 5,
+      "y": 0,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 6,
+      "y": 0,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 7,
+      "y": 0,
+      "zone": "back",
+      "n": 266,
+      "name": "Galaxy Lite 21",
+      "hex": "#8fa1a8",
+      "L": 65.1,
+      "accent": false
+    },
+    {
+      "x": 8,
+      "y": 0,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 9,
+      "y": 0,
+      "zone": "back",
+      "n": 208,
+      "name": "Ember 15",
+      "hex": "#6b838a",
+      "L": 53.2,
+      "accent": false
+    },
+    {
+      "x": 10,
+      "y": 0,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 11,
+      "y": 0,
+      "zone": "back",
+      "n": 208,
+      "name": "Ember 15",
+      "hex": "#6b838a",
+      "L": 53.2,
+      "accent": false
+    },
+    {
+      "x": 12,
+      "y": 0,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 13,
+      "y": 0,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 14,
+      "y": 0,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 15,
+      "y": 0,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "zone": "back",
+      "n": 266,
+      "name": "Galaxy Lite 21",
+      "hex": "#8fa1a8",
+      "L": 65.1,
+      "accent": false
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "zone": "back",
+      "n": 208,
+      "name": "Ember 15",
+      "hex": "#6b838a",
+      "L": 53.2,
+      "accent": false
+    },
+    {
+      "x": 5,
+      "y": 1,
+      "zone": "back",
+      "n": 465,
+      "name": "Tiffany 6",
+      "hex": "#80969c",
+      "L": 60.6,
+      "accent": false
+    },
+    {
+      "x": 6,
+      "y": 1,
+      "zone": "back",
+      "n": 566,
+      "name": "Space 6",
+      "hex": "#62818a",
+      "L": 52,
+      "accent": false
+    },
+    {
+      "x": 7,
+      "y": 1,
+      "zone": "back",
+      "n": 208,
+      "name": "Ember 15",
+      "hex": "#6b838a",
+      "L": 53.2,
+      "accent": false
+    },
+    {
+      "x": 8,
+      "y": 1,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 9,
+      "y": 1,
+      "zone": "back",
+      "n": 465,
+      "name": "Tiffany 6",
+      "hex": "#80969c",
+      "L": 60.6,
+      "accent": false
+    },
+    {
+      "x": 10,
+      "y": 1,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 11,
+      "y": 1,
+      "zone": "back",
+      "n": 566,
+      "name": "Space 6",
+      "hex": "#62818a",
+      "L": 52,
+      "accent": false
+    },
+    {
+      "x": 12,
+      "y": 1,
+      "zone": "back",
+      "n": 465,
+      "name": "Tiffany 6",
+      "hex": "#80969c",
+      "L": 60.6,
+      "accent": false
+    },
+    {
+      "x": 13,
+      "y": 1,
+      "zone": "back",
+      "n": 208,
+      "name": "Ember 15",
+      "hex": "#6b838a",
+      "L": 53.2,
+      "accent": false
+    },
+    {
+      "x": 14,
+      "y": 1,
+      "zone": "back",
+      "n": 320,
+      "name": "Hennessy 15",
+      "hex": "#7f8b93",
+      "L": 57.2,
+      "accent": false
+    },
+    {
+      "x": 15,
+      "y": 1,
+      "zone": "back",
+      "n": 208,
+      "name": "Ember 15",
+      "hex": "#6b838a",
+      "L": 53.2,
+      "accent": false
+    },
+    {
+      "x": 16,
+      "y": 1,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "zone": "back",
+      "n": 566,
+      "name": "Space 6",
+      "hex": "#62818a",
+      "L": 52,
+      "accent": false
+    },
+    {
+      "x": 5,
+      "y": 2,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 6,
+      "y": 2,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 7,
+      "y": 2,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 8,
+      "y": 2,
+      "zone": "back",
+      "n": 320,
+      "name": "Hennessy 15",
+      "hex": "#7f8b93",
+      "L": 57.2,
+      "accent": false
+    },
+    {
+      "x": 9,
+      "y": 2,
+      "zone": "back",
+      "n": 266,
+      "name": "Galaxy Lite 21",
+      "hex": "#8fa1a8",
+      "L": 65.1,
+      "accent": false
+    },
+    {
+      "x": 10,
+      "y": 2,
+      "zone": "back",
+      "n": 208,
+      "name": "Ember 15",
+      "hex": "#6b838a",
+      "L": 53.2,
+      "accent": false
+    },
+    {
+      "x": 11,
+      "y": 2,
+      "zone": "back",
+      "n": 266,
+      "name": "Galaxy Lite 21",
+      "hex": "#8fa1a8",
+      "L": 65.1,
+      "accent": false
+    },
+    {
+      "x": 12,
+      "y": 2,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 13,
+      "y": 2,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 14,
+      "y": 2,
+      "zone": "back",
+      "n": 620,
+      "name": "Rich 20",
+      "hex": "#467d80",
+      "L": 48.9,
+      "accent": true
+    },
+    {
+      "x": 15,
+      "y": 2,
+      "zone": "back",
+      "n": 566,
+      "name": "Space 6",
+      "hex": "#62818a",
+      "L": 52,
+      "accent": false
+    },
+    {
+      "x": 16,
+      "y": 2,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "zone": "back",
+      "n": 465,
+      "name": "Tiffany 6",
+      "hex": "#80969c",
+      "L": 60.6,
+      "accent": false
+    },
+    {
+      "x": 5,
+      "y": 3,
+      "zone": "back",
+      "n": 266,
+      "name": "Galaxy Lite 21",
+      "hex": "#8fa1a8",
+      "L": 65.1,
+      "accent": false
+    },
+    {
+      "x": 6,
+      "y": 3,
+      "zone": "back",
+      "n": 566,
+      "name": "Space 6",
+      "hex": "#62818a",
+      "L": 52,
+      "accent": false
+    },
+    {
+      "x": 7,
+      "y": 3,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 8,
+      "y": 3,
+      "zone": "back",
+      "n": 243,
+      "name": "Galaxy 20",
+      "hex": "#6496a0",
+      "L": 59,
+      "accent": true
+    },
+    {
+      "x": 9,
+      "y": 3,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 10,
+      "y": 3,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 11,
+      "y": 3,
+      "zone": "back",
+      "n": 465,
+      "name": "Tiffany 6",
+      "hex": "#80969c",
+      "L": 60.6,
+      "accent": false
+    },
+    {
+      "x": 12,
+      "y": 3,
+      "zone": "back",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 13,
+      "y": 3,
+      "zone": "back",
+      "n": 566,
+      "name": "Space 6",
+      "hex": "#62818a",
+      "L": 52,
+      "accent": false
+    },
+    {
+      "x": 14,
+      "y": 3,
+      "zone": "back",
+      "n": 425,
+      "name": "Onyx 15",
+      "hex": "#548680",
+      "L": 52.4,
+      "accent": true
+    },
+    {
+      "x": 15,
+      "y": 3,
+      "zone": "back",
+      "n": 243,
+      "name": "Galaxy 20",
+      "hex": "#6496a0",
+      "L": 59,
+      "accent": true
+    },
+    {
+      "x": 16,
+      "y": 3,
+      "zone": "back",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "zone": "back",
+      "n": 208,
+      "name": "Ember 15",
+      "hex": "#6b838a",
+      "L": 53.2,
+      "accent": false
+    },
+    {
+      "x": 5,
+      "y": 4,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 6,
+      "y": 4,
+      "zone": "back",
+      "n": 208,
+      "name": "Ember 15",
+      "hex": "#6b838a",
+      "L": 53.2,
+      "accent": false
+    },
+    {
+      "x": 7,
+      "y": 4,
+      "zone": "back",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 8,
+      "y": 4,
+      "zone": "back",
+      "n": 208,
+      "name": "Ember 15",
+      "hex": "#6b838a",
+      "L": 53.2,
+      "accent": false
+    },
+    {
+      "x": 9,
+      "y": 4,
+      "zone": "back",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 10,
+      "y": 4,
+      "zone": "back",
+      "n": 208,
+      "name": "Ember 15",
+      "hex": "#6b838a",
+      "L": 53.2,
+      "accent": false
+    },
+    {
+      "x": 11,
+      "y": 4,
+      "zone": "back",
+      "n": 566,
+      "name": "Space 6",
+      "hex": "#62818a",
+      "L": 52,
+      "accent": false
+    },
+    {
+      "x": 12,
+      "y": 4,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 13,
+      "y": 4,
+      "zone": "back",
+      "n": 620,
+      "name": "Rich 20",
+      "hex": "#467d80",
+      "L": 48.9,
+      "accent": true
+    },
+    {
+      "x": 14,
+      "y": 4,
+      "zone": "back",
+      "n": 556,
+      "name": "Smart 8",
+      "hex": "#4b7172",
+      "L": 45,
+      "accent": true
+    },
+    {
+      "x": 15,
+      "y": 4,
+      "zone": "back",
+      "n": 620,
+      "name": "Rich 20",
+      "hex": "#467d80",
+      "L": 48.9,
+      "accent": true
+    },
+    {
+      "x": 16,
+      "y": 4,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "zone": "left-top",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "zone": "left-top",
+      "n": 465,
+      "name": "Tiffany 6",
+      "hex": "#80969c",
+      "L": 60.6,
+      "accent": false
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "zone": "left-top",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "zone": "back",
+      "n": 566,
+      "name": "Space 6",
+      "hex": "#62818a",
+      "L": 52,
+      "accent": false
+    },
+    {
+      "x": 5,
+      "y": 5,
+      "zone": "back",
+      "n": 620,
+      "name": "Rich 20",
+      "hex": "#467d80",
+      "L": 48.9,
+      "accent": true
+    },
+    {
+      "x": 6,
+      "y": 5,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 7,
+      "y": 5,
+      "zone": "back",
+      "n": 620,
+      "name": "Rich 20",
+      "hex": "#467d80",
+      "L": 48.9,
+      "accent": true
+    },
+    {
+      "x": 8,
+      "y": 5,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 9,
+      "y": 5,
+      "zone": "back",
+      "n": 620,
+      "name": "Rich 20",
+      "hex": "#467d80",
+      "L": 48.9,
+      "accent": true
+    },
+    {
+      "x": 10,
+      "y": 5,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 11,
+      "y": 5,
+      "zone": "back",
+      "n": 620,
+      "name": "Rich 20",
+      "hex": "#467d80",
+      "L": 48.9,
+      "accent": true
+    },
+    {
+      "x": 12,
+      "y": 5,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 13,
+      "y": 5,
+      "zone": "back",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 14,
+      "y": 5,
+      "zone": "back",
+      "n": 566,
+      "name": "Space 6",
+      "hex": "#62818a",
+      "L": 52,
+      "accent": false
+    },
+    {
+      "x": 15,
+      "y": 5,
+      "zone": "back",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 16,
+      "y": 5,
+      "zone": "right-top",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 17,
+      "y": 5,
+      "zone": "right-top",
+      "n": 465,
+      "name": "Tiffany 6",
+      "hex": "#80969c",
+      "L": 60.6,
+      "accent": false
+    },
+    {
+      "x": 18,
+      "y": 5,
+      "zone": "right-top",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "zone": "left-top",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "zone": "left-top",
+      "n": 208,
+      "name": "Ember 15",
+      "hex": "#6b838a",
+      "L": 53.2,
+      "accent": false
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "zone": "left-top",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "zone": "left-top",
+      "n": 208,
+      "name": "Ember 15",
+      "hex": "#6b838a",
+      "L": 53.2,
+      "accent": false
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "zone": "back",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 5,
+      "y": 6,
+      "zone": "back",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 6,
+      "y": 6,
+      "zone": "back",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 7,
+      "y": 6,
+      "zone": "back",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 8,
+      "y": 6,
+      "zone": "back",
+      "n": 566,
+      "name": "Space 6",
+      "hex": "#62818a",
+      "L": 52,
+      "accent": false
+    },
+    {
+      "x": 9,
+      "y": 6,
+      "zone": "back",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 10,
+      "y": 6,
+      "zone": "back",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 11,
+      "y": 6,
+      "zone": "back",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 12,
+      "y": 6,
+      "zone": "back",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 13,
+      "y": 6,
+      "zone": "back",
+      "n": 71,
+      "name": "Avatr 22",
+      "hex": "#475e6a",
+      "L": 38.5,
+      "accent": false
+    },
+    {
+      "x": 14,
+      "y": 6,
+      "zone": "back",
+      "n": 208,
+      "name": "Ember 15",
+      "hex": "#6b838a",
+      "L": 53.2,
+      "accent": false
+    },
+    {
+      "x": 15,
+      "y": 6,
+      "zone": "back",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 16,
+      "y": 6,
+      "zone": "right-top",
+      "n": 566,
+      "name": "Space 6",
+      "hex": "#62818a",
+      "L": 52,
+      "accent": false
+    },
+    {
+      "x": 17,
+      "y": 6,
+      "zone": "right-top",
+      "n": 208,
+      "name": "Ember 15",
+      "hex": "#6b838a",
+      "L": 53.2,
+      "accent": false
+    },
+    {
+      "x": 18,
+      "y": 6,
+      "zone": "right-top",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 19,
+      "y": 6,
+      "zone": "right-top",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "zone": "left-side",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "zone": "left-side",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "zone": "left-side",
+      "n": 566,
+      "name": "Space 6",
+      "hex": "#62818a",
+      "L": 52,
+      "accent": false
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "zone": "left-side",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "zone": "seat",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 5,
+      "y": 7,
+      "zone": "seat",
+      "n": 465,
+      "name": "Tiffany 6",
+      "hex": "#80969c",
+      "L": 60.6,
+      "accent": false
+    },
+    {
+      "x": 6,
+      "y": 7,
+      "zone": "seat",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 7,
+      "y": 7,
+      "zone": "seat",
+      "n": 465,
+      "name": "Tiffany 6",
+      "hex": "#80969c",
+      "L": 60.6,
+      "accent": false
+    },
+    {
+      "x": 8,
+      "y": 7,
+      "zone": "seat",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 9,
+      "y": 7,
+      "zone": "seat",
+      "n": 266,
+      "name": "Galaxy Lite 21",
+      "hex": "#8fa1a8",
+      "L": 65.1,
+      "accent": false
+    },
+    {
+      "x": 10,
+      "y": 7,
+      "zone": "seat",
+      "n": 208,
+      "name": "Ember 15",
+      "hex": "#6b838a",
+      "L": 53.2,
+      "accent": false
+    },
+    {
+      "x": 11,
+      "y": 7,
+      "zone": "seat",
+      "n": 266,
+      "name": "Galaxy Lite 21",
+      "hex": "#8fa1a8",
+      "L": 65.1,
+      "accent": false
+    },
+    {
+      "x": 12,
+      "y": 7,
+      "zone": "seat",
+      "n": 465,
+      "name": "Tiffany 6",
+      "hex": "#80969c",
+      "L": 60.6,
+      "accent": false
+    },
+    {
+      "x": 13,
+      "y": 7,
+      "zone": "seat",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 14,
+      "y": 7,
+      "zone": "seat",
+      "n": 266,
+      "name": "Galaxy Lite 21",
+      "hex": "#8fa1a8",
+      "L": 65.1,
+      "accent": false
+    },
+    {
+      "x": 15,
+      "y": 7,
+      "zone": "seat",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 16,
+      "y": 7,
+      "zone": "right-side",
+      "n": 220,
+      "name": "Ember 27",
+      "hex": "#586573",
+      "L": 42.2,
+      "accent": false
+    },
+    {
+      "x": 17,
+      "y": 7,
+      "zone": "right-side",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 18,
+      "y": 7,
+      "zone": "right-side",
+      "n": 71,
+      "name": "Avatr 22",
+      "hex": "#475e6a",
+      "L": 38.5,
+      "accent": false
+    },
+    {
+      "x": 19,
+      "y": 7,
+      "zone": "right-side",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 0,
+      "y": 8,
+      "zone": "left-side",
+      "n": 71,
+      "name": "Avatr 22",
+      "hex": "#475e6a",
+      "L": 38.5,
+      "accent": false
+    },
+    {
+      "x": 1,
+      "y": 8,
+      "zone": "left-side",
+      "n": 220,
+      "name": "Ember 27",
+      "hex": "#586573",
+      "L": 42.2,
+      "accent": false
+    },
+    {
+      "x": 2,
+      "y": 8,
+      "zone": "left-side",
+      "n": 71,
+      "name": "Avatr 22",
+      "hex": "#475e6a",
+      "L": 38.5,
+      "accent": false
+    },
+    {
+      "x": 3,
+      "y": 8,
+      "zone": "left-side",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "zone": "seat",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 5,
+      "y": 8,
+      "zone": "seat",
+      "n": 425,
+      "name": "Onyx 15",
+      "hex": "#548680",
+      "L": 52.4,
+      "accent": true
+    },
+    {
+      "x": 6,
+      "y": 8,
+      "zone": "seat",
+      "n": 620,
+      "name": "Rich 20",
+      "hex": "#467d80",
+      "L": 48.9,
+      "accent": true
+    },
+    {
+      "x": 7,
+      "y": 8,
+      "zone": "seat",
+      "n": 425,
+      "name": "Onyx 15",
+      "hex": "#548680",
+      "L": 52.4,
+      "accent": true
+    },
+    {
+      "x": 8,
+      "y": 8,
+      "zone": "seat",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 9,
+      "y": 8,
+      "zone": "seat",
+      "n": 465,
+      "name": "Tiffany 6",
+      "hex": "#80969c",
+      "L": 60.6,
+      "accent": false
+    },
+    {
+      "x": 10,
+      "y": 8,
+      "zone": "seat",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 11,
+      "y": 8,
+      "zone": "seat",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 12,
+      "y": 8,
+      "zone": "seat",
+      "n": 208,
+      "name": "Ember 15",
+      "hex": "#6b838a",
+      "L": 53.2,
+      "accent": false
+    },
+    {
+      "x": 13,
+      "y": 8,
+      "zone": "seat",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 14,
+      "y": 8,
+      "zone": "seat",
+      "n": 465,
+      "name": "Tiffany 6",
+      "hex": "#80969c",
+      "L": 60.6,
+      "accent": false
+    },
+    {
+      "x": 15,
+      "y": 8,
+      "zone": "seat",
+      "n": 172,
+      "name": "Crush 21",
+      "hex": "#7d919d",
+      "L": 59,
+      "accent": false
+    },
+    {
+      "x": 16,
+      "y": 8,
+      "zone": "right-side",
+      "n": 71,
+      "name": "Avatr 22",
+      "hex": "#475e6a",
+      "L": 38.5,
+      "accent": false
+    },
+    {
+      "x": 17,
+      "y": 8,
+      "zone": "right-side",
+      "n": 427,
+      "name": "Onyx 17",
+      "hex": "#475b6d",
+      "L": 37.7,
+      "accent": false
+    },
+    {
+      "x": 18,
+      "y": 8,
+      "zone": "right-side",
+      "n": 35,
+      "name": "Aura 25",
+      "hex": "#324f5e",
+      "L": 32,
+      "accent": false
+    },
+    {
+      "x": 19,
+      "y": 8,
+      "zone": "right-side",
+      "n": 427,
+      "name": "Onyx 17",
+      "hex": "#475b6d",
+      "L": 37.7,
+      "accent": false
+    },
+    {
+      "x": 0,
+      "y": 9,
+      "zone": "left-side",
+      "n": 317,
+      "name": "Hennessy 12",
+      "hex": "#354c59",
+      "L": 31,
+      "accent": false
+    },
+    {
+      "x": 1,
+      "y": 9,
+      "zone": "left-side",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "zone": "left-side",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "zone": "left-side",
+      "n": 317,
+      "name": "Hennessy 12",
+      "hex": "#354c59",
+      "L": 31,
+      "accent": false
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "zone": "front",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 5,
+      "y": 9,
+      "zone": "front",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 6,
+      "y": 9,
+      "zone": "front",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 7,
+      "y": 9,
+      "zone": "front",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 8,
+      "y": 9,
+      "zone": "front",
+      "n": 566,
+      "name": "Space 6",
+      "hex": "#62818a",
+      "L": 52,
+      "accent": false
+    },
+    {
+      "x": 9,
+      "y": 9,
+      "zone": "front",
+      "n": 208,
+      "name": "Ember 15",
+      "hex": "#6b838a",
+      "L": 53.2,
+      "accent": false
+    },
+    {
+      "x": 10,
+      "y": 9,
+      "zone": "front",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 11,
+      "y": 9,
+      "zone": "front",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 12,
+      "y": 9,
+      "zone": "front",
+      "n": 71,
+      "name": "Avatr 22",
+      "hex": "#475e6a",
+      "L": 38.5,
+      "accent": false
+    },
+    {
+      "x": 13,
+      "y": 9,
+      "zone": "front",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 14,
+      "y": 9,
+      "zone": "front",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 15,
+      "y": 9,
+      "zone": "front",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 16,
+      "y": 9,
+      "zone": "right-side",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 17,
+      "y": 9,
+      "zone": "right-side",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 18,
+      "y": 9,
+      "zone": "right-side",
+      "n": 365,
+      "name": "Loco 19",
+      "hex": "#3f5365",
+      "L": 34.4,
+      "accent": false
+    },
+    {
+      "x": 19,
+      "y": 9,
+      "zone": "right-side",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "zone": "left-side",
+      "n": 365,
+      "name": "Loco 19",
+      "hex": "#3f5365",
+      "L": 34.4,
+      "accent": false
+    },
+    {
+      "x": 1,
+      "y": 10,
+      "zone": "left-side",
+      "n": 427,
+      "name": "Onyx 17",
+      "hex": "#475b6d",
+      "L": 37.7,
+      "accent": false
+    },
+    {
+      "x": 2,
+      "y": 10,
+      "zone": "left-side",
+      "n": 71,
+      "name": "Avatr 22",
+      "hex": "#475e6a",
+      "L": 38.5,
+      "accent": false
+    },
+    {
+      "x": 3,
+      "y": 10,
+      "zone": "left-side",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "zone": "front",
+      "n": 365,
+      "name": "Loco 19",
+      "hex": "#3f5365",
+      "L": 34.4,
+      "accent": false
+    },
+    {
+      "x": 5,
+      "y": 10,
+      "zone": "front",
+      "n": 71,
+      "name": "Avatr 22",
+      "hex": "#475e6a",
+      "L": 38.5,
+      "accent": false
+    },
+    {
+      "x": 6,
+      "y": 10,
+      "zone": "front",
+      "n": 566,
+      "name": "Space 6",
+      "hex": "#62818a",
+      "L": 52,
+      "accent": false
+    },
+    {
+      "x": 7,
+      "y": 10,
+      "zone": "front",
+      "n": 71,
+      "name": "Avatr 22",
+      "hex": "#475e6a",
+      "L": 38.5,
+      "accent": false
+    },
+    {
+      "x": 8,
+      "y": 10,
+      "zone": "front",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 9,
+      "y": 10,
+      "zone": "front",
+      "n": 427,
+      "name": "Onyx 17",
+      "hex": "#475b6d",
+      "L": 37.7,
+      "accent": false
+    },
+    {
+      "x": 10,
+      "y": 10,
+      "zone": "front",
+      "n": 71,
+      "name": "Avatr 22",
+      "hex": "#475e6a",
+      "L": 38.5,
+      "accent": false
+    },
+    {
+      "x": 11,
+      "y": 10,
+      "zone": "front",
+      "n": 427,
+      "name": "Onyx 17",
+      "hex": "#475b6d",
+      "L": 37.7,
+      "accent": false
+    },
+    {
+      "x": 12,
+      "y": 10,
+      "zone": "front",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 13,
+      "y": 10,
+      "zone": "front",
+      "n": 427,
+      "name": "Onyx 17",
+      "hex": "#475b6d",
+      "L": 37.7,
+      "accent": false
+    },
+    {
+      "x": 14,
+      "y": 10,
+      "zone": "front",
+      "n": 71,
+      "name": "Avatr 22",
+      "hex": "#475e6a",
+      "L": 38.5,
+      "accent": false
+    },
+    {
+      "x": 15,
+      "y": 10,
+      "zone": "front",
+      "n": 427,
+      "name": "Onyx 17",
+      "hex": "#475b6d",
+      "L": 37.7,
+      "accent": false
+    },
+    {
+      "x": 16,
+      "y": 10,
+      "zone": "right-side",
+      "n": 71,
+      "name": "Avatr 22",
+      "hex": "#475e6a",
+      "L": 38.5,
+      "accent": false
+    },
+    {
+      "x": 17,
+      "y": 10,
+      "zone": "right-side",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 18,
+      "y": 10,
+      "zone": "right-side",
+      "n": 71,
+      "name": "Avatr 22",
+      "hex": "#475e6a",
+      "L": 38.5,
+      "accent": false
+    },
+    {
+      "x": 19,
+      "y": 10,
+      "zone": "right-side",
+      "n": 427,
+      "name": "Onyx 17",
+      "hex": "#475b6d",
+      "L": 37.7,
+      "accent": false
+    },
+    {
+      "x": 0,
+      "y": 11,
+      "zone": "left-side",
+      "n": 71,
+      "name": "Avatr 22",
+      "hex": "#475e6a",
+      "L": 38.5,
+      "accent": false
+    },
+    {
+      "x": 1,
+      "y": 11,
+      "zone": "left-side",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 2,
+      "y": 11,
+      "zone": "left-side",
+      "n": 35,
+      "name": "Aura 25",
+      "hex": "#324f5e",
+      "L": 32,
+      "accent": false
+    },
+    {
+      "x": 3,
+      "y": 11,
+      "zone": "left-side",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "zone": "front",
+      "n": 220,
+      "name": "Ember 27",
+      "hex": "#586573",
+      "L": 42.2,
+      "accent": false
+    },
+    {
+      "x": 5,
+      "y": 11,
+      "zone": "front",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 6,
+      "y": 11,
+      "zone": "front",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 7,
+      "y": 11,
+      "zone": "front",
+      "n": 220,
+      "name": "Ember 27",
+      "hex": "#586573",
+      "L": 42.2,
+      "accent": false
+    },
+    {
+      "x": 8,
+      "y": 11,
+      "zone": "front",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 9,
+      "y": 11,
+      "zone": "front",
+      "n": 220,
+      "name": "Ember 27",
+      "hex": "#586573",
+      "L": 42.2,
+      "accent": false
+    },
+    {
+      "x": 10,
+      "y": 11,
+      "zone": "front",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 11,
+      "y": 11,
+      "zone": "front",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 12,
+      "y": 11,
+      "zone": "front",
+      "n": 71,
+      "name": "Avatr 22",
+      "hex": "#475e6a",
+      "L": 38.5,
+      "accent": false
+    },
+    {
+      "x": 13,
+      "y": 11,
+      "zone": "front",
+      "n": 317,
+      "name": "Hennessy 12",
+      "hex": "#354c59",
+      "L": 31,
+      "accent": false
+    },
+    {
+      "x": 14,
+      "y": 11,
+      "zone": "front",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 15,
+      "y": 11,
+      "zone": "front",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 16,
+      "y": 11,
+      "zone": "right-side",
+      "n": 35,
+      "name": "Aura 25",
+      "hex": "#324f5e",
+      "L": 32,
+      "accent": false
+    },
+    {
+      "x": 17,
+      "y": 11,
+      "zone": "right-side",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 18,
+      "y": 11,
+      "zone": "right-side",
+      "n": 317,
+      "name": "Hennessy 12",
+      "hex": "#354c59",
+      "L": 31,
+      "accent": false
+    },
+    {
+      "x": 19,
+      "y": 11,
+      "zone": "right-side",
+      "n": 147,
+      "name": "Chef 12",
+      "hex": "#284551",
+      "L": 27.6,
+      "accent": false
+    },
+    {
+      "x": 0,
+      "y": 12,
+      "zone": "left-side",
+      "n": 317,
+      "name": "Hennessy 12",
+      "hex": "#354c59",
+      "L": 31,
+      "accent": false
+    },
+    {
+      "x": 1,
+      "y": 12,
+      "zone": "left-side",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 2,
+      "y": 12,
+      "zone": "left-side",
+      "n": 427,
+      "name": "Onyx 17",
+      "hex": "#475b6d",
+      "L": 37.7,
+      "accent": false
+    },
+    {
+      "x": 3,
+      "y": 12,
+      "zone": "left-side",
+      "n": 365,
+      "name": "Loco 19",
+      "hex": "#3f5365",
+      "L": 34.4,
+      "accent": false
+    },
+    {
+      "x": 4,
+      "y": 12,
+      "zone": "front",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 5,
+      "y": 12,
+      "zone": "front",
+      "n": 427,
+      "name": "Onyx 17",
+      "hex": "#475b6d",
+      "L": 37.7,
+      "accent": false
+    },
+    {
+      "x": 6,
+      "y": 12,
+      "zone": "front",
+      "n": 71,
+      "name": "Avatr 22",
+      "hex": "#475e6a",
+      "L": 38.5,
+      "accent": false
+    },
+    {
+      "x": 7,
+      "y": 12,
+      "zone": "front",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 8,
+      "y": 12,
+      "zone": "front",
+      "n": 71,
+      "name": "Avatr 22",
+      "hex": "#475e6a",
+      "L": 38.5,
+      "accent": false
+    },
+    {
+      "x": 9,
+      "y": 12,
+      "zone": "front",
+      "n": 315,
+      "name": "Hennessy 10",
+      "hex": "#537281",
+      "L": 46.3,
+      "accent": false
+    },
+    {
+      "x": 10,
+      "y": 12,
+      "zone": "front",
+      "n": 71,
+      "name": "Avatr 22",
+      "hex": "#475e6a",
+      "L": 38.5,
+      "accent": false
+    },
+    {
+      "x": 11,
+      "y": 12,
+      "zone": "front",
+      "n": 427,
+      "name": "Onyx 17",
+      "hex": "#475b6d",
+      "L": 37.7,
+      "accent": false
+    },
+    {
+      "x": 12,
+      "y": 12,
+      "zone": "front",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 13,
+      "y": 12,
+      "zone": "front",
+      "n": 427,
+      "name": "Onyx 17",
+      "hex": "#475b6d",
+      "L": 37.7,
+      "accent": false
+    },
+    {
+      "x": 14,
+      "y": 12,
+      "zone": "front",
+      "n": 71,
+      "name": "Avatr 22",
+      "hex": "#475e6a",
+      "L": 38.5,
+      "accent": false
+    },
+    {
+      "x": 15,
+      "y": 12,
+      "zone": "front",
+      "n": 427,
+      "name": "Onyx 17",
+      "hex": "#475b6d",
+      "L": 37.7,
+      "accent": false
+    },
+    {
+      "x": 16,
+      "y": 12,
+      "zone": "right-side",
+      "n": 71,
+      "name": "Avatr 22",
+      "hex": "#475e6a",
+      "L": 38.5,
+      "accent": false
+    },
+    {
+      "x": 17,
+      "y": 12,
+      "zone": "right-side",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 18,
+      "y": 12,
+      "zone": "right-side",
+      "n": 365,
+      "name": "Loco 19",
+      "hex": "#3f5365",
+      "L": 34.4,
+      "accent": false
+    },
+    {
+      "x": 19,
+      "y": 12,
+      "zone": "right-side",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 1,
+      "y": 13,
+      "zone": "base",
+      "n": 71,
+      "name": "Avatr 22",
+      "hex": "#475e6a",
+      "L": 38.5,
+      "accent": false
+    },
+    {
+      "x": 2,
+      "y": 13,
+      "zone": "base",
+      "n": 317,
+      "name": "Hennessy 12",
+      "hex": "#354c59",
+      "L": 31,
+      "accent": false
+    },
+    {
+      "x": 3,
+      "y": 13,
+      "zone": "base",
+      "n": 71,
+      "name": "Avatr 22",
+      "hex": "#475e6a",
+      "L": 38.5,
+      "accent": false
+    },
+    {
+      "x": 4,
+      "y": 13,
+      "zone": "base",
+      "n": 317,
+      "name": "Hennessy 12",
+      "hex": "#354c59",
+      "L": 31,
+      "accent": false
+    },
+    {
+      "x": 5,
+      "y": 13,
+      "zone": "base",
+      "n": 35,
+      "name": "Aura 25",
+      "hex": "#324f5e",
+      "L": 32,
+      "accent": false
+    },
+    {
+      "x": 6,
+      "y": 13,
+      "zone": "base",
+      "n": 317,
+      "name": "Hennessy 12",
+      "hex": "#354c59",
+      "L": 31,
+      "accent": false
+    },
+    {
+      "x": 7,
+      "y": 13,
+      "zone": "base",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 8,
+      "y": 13,
+      "zone": "base",
+      "n": 317,
+      "name": "Hennessy 12",
+      "hex": "#354c59",
+      "L": 31,
+      "accent": false
+    },
+    {
+      "x": 9,
+      "y": 13,
+      "zone": "base",
+      "n": 147,
+      "name": "Chef 12",
+      "hex": "#284551",
+      "L": 27.6,
+      "accent": false
+    },
+    {
+      "x": 10,
+      "y": 13,
+      "zone": "base",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 11,
+      "y": 13,
+      "zone": "base",
+      "n": 147,
+      "name": "Chef 12",
+      "hex": "#284551",
+      "L": 27.6,
+      "accent": false
+    },
+    {
+      "x": 12,
+      "y": 13,
+      "zone": "base",
+      "n": 317,
+      "name": "Hennessy 12",
+      "hex": "#354c59",
+      "L": 31,
+      "accent": false
+    },
+    {
+      "x": 13,
+      "y": 13,
+      "zone": "base",
+      "n": 147,
+      "name": "Chef 12",
+      "hex": "#284551",
+      "L": 27.6,
+      "accent": false
+    },
+    {
+      "x": 14,
+      "y": 13,
+      "zone": "base",
+      "n": 364,
+      "name": "Loco 18",
+      "hex": "#4f6472",
+      "L": 41.2,
+      "accent": false
+    },
+    {
+      "x": 15,
+      "y": 13,
+      "zone": "base",
+      "n": 147,
+      "name": "Chef 12",
+      "hex": "#284551",
+      "L": 27.6,
+      "accent": false
+    },
+    {
+      "x": 16,
+      "y": 13,
+      "zone": "base",
+      "n": 317,
+      "name": "Hennessy 12",
+      "hex": "#354c59",
+      "L": 31,
+      "accent": false
+    },
+    {
+      "x": 17,
+      "y": 13,
+      "zone": "base",
+      "n": 147,
+      "name": "Chef 12",
+      "hex": "#284551",
+      "L": 27.6,
+      "accent": false
+    },
+    {
+      "x": 18,
+      "y": 13,
+      "zone": "base",
+      "n": 317,
+      "name": "Hennessy 12",
+      "hex": "#354c59",
+      "L": 31,
+      "accent": false
+    }
+  ]
+}

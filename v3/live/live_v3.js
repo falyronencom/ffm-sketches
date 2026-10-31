@@ -88,14 +88,14 @@
   $$('a:not([href])').forEach(a => {
     const t = a.textContent.trim();
     if (a.classList.contains('logo')) return a.setAttribute('href', '#top');
-    if (a.classList.contains('mine')) return demo(a, `${a.title}. Собранные оттенки отправляются списком в Viber — заработает на следующем этапе.`);
-    if (a.classList.contains('hanger')) return demo(a, collectionText($('b', a).textContent));
+    if (a.classList.contains('mine')) { a.href = '#samples'; a.dataset.samples = ''; a.title = 'Мои образцы'; a.setAttribute('aria-label', 'Мои образцы'); a.innerHTML = '<span>Мои образцы</span><b data-sample-count>0</b>'; return; }
+    if (a.classList.contains('hanger')) { a.href = '#collection'; a.dataset.collection = $('b', a).textContent; return; }
     if (a.parentElement.classList.contains('kinds')) {
       const n = +$('em', a).textContent;
       return demo(a, `${a.firstChild.textContent.trim() === 'Все' ? 'Весь каталог' : `Раздел «${a.firstChild.textContent.trim()}»`} — ${ofN(n, 'коллекция', plural(n, 'коллекция', 'коллекции', 'коллекций'))} — следующим шагом. Экраны коллекции и подбора — в набросках варианта 3.`);
     }
     if (a.classList.contains('fam-all')) return demo(a, '');
-    if (a.closest('.macro-tag')) return demo(a, collectionText('Betsy'));
+    if (a.closest('.macro-tag')) { a.href = '#collection'; a.dataset.collection = 'Betsy'; a.dataset.shade = '003'; return; }
     if (a.classList.contains('tcard')) return demo(a, `Подбор «${$('b', a).textContent}» — ${$('em', a).textContent}. ${SELECT}`);
     if (SAYS[t]) return demo(a, SAYS[t]);
     if (ROUTES[t]) return a.setAttribute('href', ROUTES[t]);
@@ -135,11 +135,11 @@
         a.append(i);
         b.textContent = `${name} ${D.shades[n][1]}`;
         s.textContent = kind.toLowerCase();
-        demo(a, `${name} ${D.shades[n][1]} — ${kind.toLowerCase()}. ${collectionText(name)}`);
+        a.href = '#collection'; a.dataset.collection = name; a.dataset.shade = D.shades[n][1];
       } else {
         b.textContent = name;
         s.textContent = `${kind} · ${nShade(cnt)}`;
-        demo(a, collectionText(name));
+        a.href = '#collection'; a.dataset.collection = name; a.dataset.shade = num || ''; 
       }
       a.append(b, s);
       li.append(a);
@@ -174,7 +174,7 @@
   const hideSheet = () => { sheet.hidden = true; sheetOpener?.focus(); };
   sheetClose.addEventListener('click', hideSheet);
   sheetInput.addEventListener('input', () => fill($('ul', sheet), sheetInput.value));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !sheet.hidden) hideSheet(); });
+  document.addEventListener('keydown', e => { if (document.querySelector('.ffm-dialog[open]')) return; if (e.key === 'Escape' && !sheet.hidden) hideSheet(); });
 
   // компьютер: надпись в шапке становится полем поиска с подсказками
   const label = $('.hdr label.search');
@@ -197,7 +197,7 @@
       if (e.key === 'Escape') { input.value = ''; fill(list, ''); }
       if (e.key === 'Enter') { e.preventDefault(); $('a', list)?.click(); }
     });
-    document.addEventListener('click', e => { if (!box.contains(e.target)) list.hidden = true; });
+    document.addEventListener('click', e => { if (!box.contains(e.target) && !e.target.closest('.ffm-dialog')) list.hidden = true; });
   }
 
   // телефон: значки поиска и меню становятся кнопками
@@ -233,7 +233,7 @@
     btn.addEventListener('click', () => { menu.hidden = false; btn.setAttribute('aria-expanded', 'true'); closeBtn.focus(); });
     closeBtn.addEventListener('click', () => hide(true));
     $$('a', menu).forEach(a => a.addEventListener('click', () => hide(false)));
-    document.addEventListener('keydown', e => {
+    document.addEventListener('keydown', e => { if (document.querySelector('.ffm-dialog[open]')) return;
       if (menu.hidden) return;
       if (e.key === 'Escape') hide(true);
       if (e.key === 'Tab') {
@@ -243,7 +243,7 @@
       }
     });
   }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !toast.hidden) toast.hidden = true; });
+  document.addEventListener('keydown', e => { if (document.querySelector('.ffm-dialog[open]')) return; if (e.key === 'Escape' && !toast.hidden) toast.hidden = true; });
 
   // шапка: лёгкая тень, когда страница прокручена (наблюдатель за меткой в начале страницы, без обработчика прокрутки)
   const mark = document.createElement('div');
@@ -269,13 +269,24 @@
     if (y + th > innerHeight - 8) y = e.clientY - th - 12;
     tip.style.transform = `translate(${x}px,${y}px)`;
   };
-  const pickSay = n => { const s = shade(n); say(`${s.name} — ${s.kind.toLowerCase()}. ${collectionText(s.coll)}`); };
+  const pickSay = n => { const s = shade(n); tip.hidden = true; window.FFMSelection.open(s.coll, s.label, document.activeElement); };
 
   const wall = $('.wall'), wimg = $('.wall img');
   const hl = document.createElement('i');
   hl.className = 'pick-hl';
   hl.hidden = true;
   wall.append(hl);
+  // One keyboard cursor follows the visual grid; the image stays unchanged.
+  let wallIndex = 0;
+  wall.tabIndex = 0;
+  wall.setAttribute('role', 'button');
+  const wallLabel = () => wall.setAttribute('aria-label', 'Стена оттенков. ' + shade(D.grid.d[wallIndex]).name + '. Стрелки — выбор; Enter — открыть.');
+  wallLabel();
+  wall.addEventListener('keydown', e => {
+    const steps = {ArrowLeft:-1,ArrowRight:1,ArrowUp:-D.walls.d.cols,ArrowDown:D.walls.d.cols};
+    if (e.key in steps) { e.preventDefault(); wallIndex = Math.max(0, Math.min(D.grid.d.length - 1, wallIndex + steps[e.key])); wallLabel(); const c=wallIndex % D.walls.d.cols,r=Math.floor(wallIndex / D.walls.d.cols),rect=wimg.getBoundingClientRect(),cw=rect.width/D.walls.d.cols,ch=rect.height/D.walls.d.rows; hl.hidden=false; hl.style.cssText='left:'+c*cw+'px;top:'+r*ch+'px;width:'+cw+'px;height:'+ch+'px'; wall.scrollTo({left:Math.max(0,c*cw-(wall.clientWidth-cw)/2),behavior:'instant'}); }
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pickSay(D.grid.d[wallIndex]); }
+  });
   const hideWall = () => { tip.hidden = true; hl.hidden = true; };
   const wallCell = e => {
     const r = wimg.getBoundingClientRect(), key = layout(), L = D.walls[key];
@@ -301,6 +312,7 @@
   // на сенсорном экране ряды проявляются средствами браузера (base: live_v3.css), без сдвига
   let buildBox = null;
   function buildWall() {
+    if (window.FFMPaletteMotion) { window.FFMPaletteMotion.play(); return; }
     if (!enabled || coarse.matches || doc.classList.contains('intro-done')) { wall.classList.add('done'); return; }
     const L = D.walls[layout()], r = wimg.getBoundingClientRect();
     if (!r.width || !r.height) { wall.classList.add('done'); return; }
@@ -347,7 +359,7 @@
     h2.textContent = `Кресло из ${ofN(st.n, 'оттенка', 'оттенков')}`;
     const b = document.createElement('b');
     b.className = 'fam-t';
-    b.textContent = f.title;
+    b.textContent = key === 'blue' ? 'Дымчато-синий с бирюзовыми акцентами' : f.title;
     cap.replaceChildren(b, ` из ${ofN(st.colls, 'коллекции', 'коллекций')}. Каждый квадрат — настоящий образец: ${coarse.matches ? 'нажмите' : 'наведите'} — увидите название и номер.`);
     famAll.innerHTML = `Все ${f.title.toLowerCase()} — ${nShade(f.n)} ${arrow}`;
     famAll.dataset.say = `Все ${f.title.toLowerCase()} — ${nShade(f.n)}: страница цвета — следующим шагом. ${SELECT}`;
@@ -384,6 +396,14 @@
     el ? showTip(+el.dataset.n, e) : (tip.hidden = true);
   });
   chair.addEventListener('pointerleave', () => { tip.hidden = true; });
+  chair.tabIndex = 0; chair.setAttribute('role','button');
+  chair.setAttribute('aria-label','Кресло из образцов. Enter — открыть оттенок; стрелки — выбрать другой.');
+  let chairIndex = 0;
+  chair.addEventListener('keydown', e => {
+    const cells = cellsEl.filter(el=>el.dataset.n);
+    if (['ArrowRight','ArrowLeft','ArrowUp','ArrowDown'].includes(e.key)) { e.preventDefault(); cells[chairIndex]?.classList.remove('keyboard-pick'); chairIndex=(chairIndex+(['ArrowRight','ArrowDown'].includes(e.key)?1:cells.length-1))%cells.length; cells[chairIndex].classList.add('keyboard-pick'); chair.setAttribute('aria-label',shade(+cells[chairIndex].dataset.n).name+'. Enter — открыть; стрелки — выбор.'); }
+    if ((e.key==='Enter'||e.key===' ')&&cells.length) {e.preventDefault();pickSay(+cells[chairIndex].dataset.n);}
+  });
   chair.addEventListener('click', e => {
     const el = e.target.closest('i[data-n]');
     if (el) pickSay(+el.dataset.n);

@@ -15,20 +15,17 @@ toggle.addEventListener('click',()=>setMotion(!enabled));reduced.addEventListene
 const menu=document.querySelector('.mobile-menu'),menuButton=document.querySelector('#menu-button');
 function closeMenu(){menu.hidden=true;menuButton.setAttribute('aria-expanded','false');menuButton.focus()}
 menuButton.addEventListener('click',()=>{menu.hidden=false;menuButton.setAttribute('aria-expanded','true');menu.querySelector('button').focus()});menu.querySelector('button').addEventListener('click',closeMenu);menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!menu.hidden)closeMenu();if(e.key==='Tab'&&!menu.hidden){const f=[...menu.querySelectorAll('button,a[href]')],first=f[0],last=f.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
-const input=document.querySelector('#fabric-search'),results=document.querySelector('#search-results'),message=document.querySelector('#search-message'),collections=JSON.parse(document.querySelector('#collection-data').textContent);
-function search(){const query=input.value.trim().toLowerCase();results.replaceChildren();results.hidden=!query;message.hidden=true;if(!query)return;const matches=collections.filter(c=>c.name.toLowerCase().includes(query.replace(/\s+\d+$/,'')));matches.forEach(c=>{const li=document.createElement('li'),a=document.createElement('a'),name=document.createElement('b'),hint=document.createElement('span');a.href='../#screens';a.dataset.demo=c.name;name.textContent=c.name;hint.textContent=c.kind;a.append(name,hint);li.append(a);results.append(li)});if(!matches.length){message.textContent='В демонстрации показаны Brabus, Betsy, Festa, Comfort FL и Favorit FL.';message.hidden=false}}
-input.addEventListener('input',search);document.querySelector('#search-form').addEventListener('submit',e=>{e.preventDefault();search();results.querySelector('a')?.focus()});
-document.querySelectorAll('a[href="#find"]').forEach(a=>a.addEventListener('click',()=>setTimeout(()=>input.focus({preventScroll:true}),reduced.matches?0:550)));
+document.addEventListener('keydown',e=>{if(document.querySelector('.ffm-dialog[open]'))return;if(e.key==='Escape'&&!menu.hidden)closeMenu();if(e.key==='Tab'&&!menu.hidden){const f=[...menu.querySelectorAll('button,a[href]')],first=f[0],last=f.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
+// Search and category navigation are implemented in catalog-search.js.
 // Коллекции живой страницы нет: вместо перехода в старый каталог — подсказка со ссылкой на наброски варианта 2
 const toast=document.createElement('div');toast.className='demo-toast';toast.setAttribute('role','status');toast.hidden=true;
 toast.innerHTML='<p></p><div class="demo-toast-acts"><a href="../#screens">Открыть наброски</a><button type="button">Закрыть</button></div>';
 document.body.append(toast);
 const toastText=toast.querySelector('p'),toastClose=toast.querySelector('button');let toastTimer=0;
 function showDemo(name){toastText.textContent='Страница коллекции '+name+' — в набросках варианта 2: живой в этой демонстрации сделана только главная.';toast.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>{toast.hidden=true},9000)}
-document.addEventListener('click',e=>{const a=e.target.closest('[data-demo]');if(!a)return;e.preventDefault();showDemo(a.dataset.demo)});
+document.addEventListener('click',e=>{const a=e.target.closest('[data-demo]');if(!a)return;e.preventDefault();window.FFMSelection.open(a.dataset.demo, '', a)});
 toastClose.addEventListener('click',()=>{toast.hidden=true});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!toast.hidden)toast.hidden=true});
+document.addEventListener('keydown',e=>{if(document.querySelector('.ffm-dialog[open]'))return;if(e.key==='Escape'&&!toast.hidden)toast.hidden=true});
 })();
 
 
