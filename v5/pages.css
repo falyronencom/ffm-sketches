@@ -1,0 +1,152 @@
+/* Страницы альбома на все коллекции: образцы с зубчатым краем, закладки разделов,
+   содержание, доска подборки и лента коллекций раздела. Загружается после scene.css. */
+
+/* Образец, вырезанный зубчатыми ножницами. Две вложенные маски дают зубцы со всех
+   сторон: .swatch-cut — слева и справа, картинка — сверху и снизу. Тень — у обёртки,
+   иначе маска срезала бы её вместе с краем. */
+.swatch{--z:2.6px}
+.swatch-sample{display:block;width:100%;transform:rotate(var(--tilt,0deg));filter:drop-shadow(0 1px .6px #2a20103d) drop-shadow(0 2px 3px #2a201018);transition:transform .2s var(--ease),filter .2s}
+.swatch-cut{display:block;aspect-ratio:1;overflow:hidden;
+  -webkit-mask:conic-gradient(from 45deg at 0 50%,#000 90deg,#0000 0) left/var(--z) calc(2*var(--z)) repeat-y,linear-gradient(#000 0 0) center/calc(100% - 2*var(--z)) 100% no-repeat,conic-gradient(from -135deg at 100% 50%,#000 90deg,#0000 0) right/var(--z) calc(2*var(--z)) repeat-y;
+  mask:conic-gradient(from 45deg at 0 50%,#000 90deg,#0000 0) left/var(--z) calc(2*var(--z)) repeat-y,linear-gradient(#000 0 0) center/calc(100% - 2*var(--z)) 100% no-repeat,conic-gradient(from -135deg at 100% 50%,#000 90deg,#0000 0) right/var(--z) calc(2*var(--z)) repeat-y}
+.swatch-cut img{display:block;width:100%;height:100%;aspect-ratio:auto;object-fit:cover;
+  -webkit-mask:conic-gradient(from 135deg at 50% 0,#000 90deg,#0000 0) top/calc(2*var(--z)) var(--z) repeat-x,linear-gradient(#000 0 0) center/100% calc(100% - 2*var(--z)) no-repeat,conic-gradient(from -45deg at 50% 100%,#000 90deg,#0000 0) bottom/calc(2*var(--z)) var(--z) repeat-x;
+  mask:conic-gradient(from 135deg at 50% 0,#000 90deg,#0000 0) top/calc(2*var(--z)) var(--z) repeat-x,linear-gradient(#000 0 0) center/100% calc(100% - 2*var(--z)) no-repeat,conic-gradient(from -45deg at 50% 100%,#000 90deg,#0000 0) bottom/calc(2*var(--z)) var(--z) repeat-x}
+.swatch{padding:4px 3px 2px;gap:4px}
+.swatch:hover .swatch-sample{transform:translateY(-1px) rotate(0deg)}
+.swatch[aria-pressed=true] .swatch-sample{transform:translateY(-1px) rotate(0deg) scale(1.04);filter:drop-shadow(0 2px 1px #2a201045) drop-shadow(0 5px 6px #2a201030)}
+.swatch-label{letter-spacing:.04em}
+.swatches.many{grid-template-columns:repeat(15,minmax(0,1fr));gap:5px 3px}
+.swatches.many .swatch{--z:2px;padding:2px 1px 1px;gap:2px;min-height:0}
+.swatches.many .swatch-label{font-size:8px}
+
+/* Закладки разделов на обрезе. Как в печатном каталоге: закладки пройденных разделов
+   торчат слева, впереди лежащих — справа. Лежат под страницей (z-index -1) и при
+   смене стороны выходят из-под края листа. */
+.edge-tabs{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.edge-tab{--tuck:-100%;position:absolute;left:calc(100% - 8px);top:calc(16px + var(--i) * (100% - 32px) / 7);height:calc((100% - 32px) / 7 - 5px);width:37px;min-height:0;padding:0 0 0 8px;display:flex;align-items:center;justify-content:center;pointer-events:auto;background:linear-gradient(to right,#c9c0ae,#e9e3d6 35%,#f2ede2);color:#4d4b43;border-radius:0 7px 7px 0;box-shadow:3px 2px 7px #0006;font-size:9px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;transition:background .2s,color .2s}
+.edge-tab span{writing-mode:vertical-rl;white-space:nowrap}
+.edge-tab.is-left{--tuck:100%;left:auto;right:calc(100% - 8px);padding:0 8px 0 0;border-radius:7px 0 0 7px;background:linear-gradient(to left,#c9c0ae,#e9e3d6 35%,#f2ede2);box-shadow:-3px 2px 7px #0006}
+.edge-tab.is-left span{transform:rotate(180deg)}
+.edge-tab:hover{background:#fffaf0;color:var(--ink)}
+.edge-tab[aria-current=true]{background:#2b2a25;color:#f2ede2}
+.edge-tab:focus-visible{outline-color:#f7f1e5;outline-offset:2px}
+.edge-tab.emerge{animation:tab-emerge .55s var(--ease) both}
+@keyframes tab-emerge{from{transform:translateX(var(--tuck))}}
+
+/* Содержание: слева все коллекции образцами, справа — разделы словами. */
+.mosaic-page{background:#ece6da radial-gradient(ellipse at 45% 40%,#f8f4ec,transparent 75%)}
+.mosaic{--z:2.4px;position:absolute;inset:0;display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:repeat(7,1fr);gap:7px 6px;padding:20px 18px;filter:drop-shadow(0 1px .7px #2a201040) drop-shadow(0 2px 3px #2a20101c)}
+.mosaic-tile{display:block;min-width:0;min-height:0;padding:0;transition:transform .2s var(--ease);
+  -webkit-mask:conic-gradient(from 45deg at 0 50%,#000 90deg,#0000 0) left/var(--z) calc(2*var(--z)) repeat-y,linear-gradient(#000 0 0) center/calc(100% - 2*var(--z)) 100% no-repeat,conic-gradient(from -135deg at 100% 50%,#000 90deg,#0000 0) right/var(--z) calc(2*var(--z)) repeat-y;
+  mask:conic-gradient(from 45deg at 0 50%,#000 90deg,#0000 0) left/var(--z) calc(2*var(--z)) repeat-y,linear-gradient(#000 0 0) center/calc(100% - 2*var(--z)) 100% no-repeat,conic-gradient(from -135deg at 100% 50%,#000 90deg,#0000 0) right/var(--z) calc(2*var(--z)) repeat-y}
+.mosaic-tile img{width:100%;height:100%;object-fit:cover;
+  -webkit-mask:conic-gradient(from 135deg at 50% 0,#000 90deg,#0000 0) top/calc(2*var(--z)) var(--z) repeat-x,linear-gradient(#000 0 0) center/100% calc(100% - 2*var(--z)) no-repeat,conic-gradient(from -45deg at 50% 100%,#000 90deg,#0000 0) bottom/calc(2*var(--z)) var(--z) repeat-x;
+  mask:conic-gradient(from 135deg at 50% 0,#000 90deg,#0000 0) top/calc(2*var(--z)) var(--z) repeat-x,linear-gradient(#000 0 0) center/100% calc(100% - 2*var(--z)) no-repeat,conic-gradient(from -45deg at 50% 100%,#000 90deg,#0000 0) bottom/calc(2*var(--z)) var(--z) repeat-x}
+.mosaic-tile span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.mosaic-tile:hover,.mosaic-tile:focus-visible{transform:scale(1.07)}
+.mosaic-tile:focus-visible{outline:0}
+.mosaic-ticket{position:absolute;right:16px;bottom:20px;z-index:3;width:calc(37.5% - 26px);min-width:0;pointer-events:none}
+.mosaic-ticket strong{display:block;font-size:16px;line-height:1.2;margin:2px 0}
+.mosaic-ticket small:last-child{margin:0;letter-spacing:.1em}
+.contents-page .collection-heading h2{font-size:clamp(50px,4.6vw,66px)}
+.contents-page .collection-note{max-width:430px;min-height:0}
+.toc{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.toc li{display:grid;grid-template-columns:128px 1fr;gap:12px;align-items:baseline;padding:6px 0 5px;border-bottom:1px solid var(--line)}
+.toc-chapter{display:flex;gap:8px;align-items:baseline;text-align:left;padding:0;font:400 18px/1.15 Forum,Georgia,serif}
+.toc-chapter span{flex:none;font:500 9px/1 Jost,'Segoe UI',sans-serif;letter-spacing:.1em;color:var(--muted)}
+.toc-names{margin:0;font-size:11px;line-height:1.6;color:#a8a597}
+.toc-names button{padding:0;color:#45463f;font-size:inherit}
+.toc-chapter:hover,.toc-names button:hover{text-decoration:underline;text-underline-offset:3px}
+.contents-hint{margin:auto 0 0;padding-top:12px;text-align:left}
+
+/* Последний разворот: доска с образцами и список для менеджера. */
+.board-page{background:#ece6da radial-gradient(ellipse at 45% 40%,#f8f4ec,transparent 75%)}
+.board{position:absolute;inset:66px 28px 30px;display:grid;grid-template-columns:repeat(var(--cols,4),minmax(0,calc(var(--size,98px) * var(--shrink,1))));gap:22px 20px;align-content:center;justify-content:center}
+.board-sample{--z:3.4px;display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;padding:0}
+.board-sample:hover .swatch-sample{transform:translateY(-2px) rotate(0deg)}
+.board-tag{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10px;color:#45463f;background:#faf9f5;padding:2px 7px;box-shadow:0 1px 2px #0000001a}
+.board-tag b{font-weight:600}
+.board.is-empty{display:flex;align-items:center;justify-content:center}
+.board-empty{max-width:260px;margin:0;text-align:center;color:var(--muted);font-size:13px;line-height:1.55}
+.board-ghosts{display:flex;justify-content:center;gap:16px;margin-bottom:20px}
+.board-ghosts i{width:60px;height:60px;border:1.5px dashed #b8b09e;transform:rotate(-2deg)}
+.board-ghosts i:nth-child(2){transform:rotate(1.5deg) translateY(-6px)}
+.board-ghosts i:nth-child(3){transform:rotate(-.5deg)}
+.selection-page{height:var(--height)}
+.selection-page .collection-note{min-height:0}
+.selection-page .material-category{white-space:nowrap}
+.selection-list{flex:1 1 auto;min-height:0;overflow:auto;border-top:1px solid var(--line);margin-bottom:14px;overscroll-behavior:contain}
+.selection-list:empty{display:none}
+.selection-list .sample-row{padding:7px 0;gap:12px}
+.selection-list .sample-photo img{width:44px;height:44px}
+.selection-list .sample-info{padding:3px 0}
+.selection-list .sample-info strong{font-size:14px}
+.selection-list .sample-info small{font-size:10px;margin-top:2px}
+.selection-actions{display:grid;gap:8px;margin-top:auto}
+.secondary-actions{display:flex;gap:8px}
+.secondary{flex:1;display:flex;align-items:center;justify-content:center;min-height:44px;padding:8px 10px;border:1px solid #c9c7be;font-size:11px;text-align:center}
+.secondary:hover{background:#eeece4}
+.selection-actions .copy-fallback{margin:0}
+.selection-actions .detail-action-note{margin:2px 0 0}
+
+/* Лента коллекций текущего раздела под книгой. */
+.chapter-tabs{flex-direction:column;align-items:center;gap:7px;min-width:0}
+.strip-caption{margin:0;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#ddd5c6}
+.strip-caption span{margin-left:9px;color:#a59d8f;letter-spacing:.08em}
+.strip-row{display:flex;gap:6px;max-width:min(42vw,560px);overflow-x:auto;scrollbar-width:none;padding:2px 14px 0;-webkit-mask:linear-gradient(to right,transparent,#000 16px,#000 calc(100% - 16px),transparent);mask:linear-gradient(to right,transparent,#000 16px,#000 calc(100% - 16px),transparent)}
+.strip-row::-webkit-scrollbar{display:none}
+.strip-chip{flex:none;padding:0 0 5px;border-bottom:1.5px solid transparent;opacity:.62;transition:opacity .2s}
+.strip-chip img{width:30px;height:30px;object-fit:cover}
+.strip-chip[aria-current=true]{opacity:1;border-color:#e5ddcc}
+.strip-chip:hover{opacity:1}
+html[data-page=contents] .mobile-save,html[data-page=selection] .mobile-save{display:none}
+/* Сообщение о подборке — под логотипом, чтобы не закрывать ленту коллекций под книгой. */
+@media(min-width:900px){.toast{top:64px;bottom:auto;transform:translate(-50%,-14px)}.toast.show{transform:translate(-50%,0)}}
+@media(min-width:900px) and (max-height:820px){.toast{top:56px}}
+
+@media(min-width:900px) and (max-height:820px){
+  .toc li{padding:5px 0 4px}
+  .toc-chapter{font-size:17px}
+  .toc-names{font-size:10.5px;line-height:1.55}
+  .contents-page .collection-heading h2{font-size:52px}
+  .board{inset:58px 24px 24px;gap:14px 16px}
+  .board{--shrink:.86}
+}
+@media(max-width:899px){
+  .album{padding-top:30px}
+  .edge-tabs{inset:auto 0 100% 0;height:30px;display:flex;gap:2px;padding:0 3px;overflow-x:auto;scrollbar-width:none}
+  .edge-tabs::-webkit-scrollbar{display:none}
+  .edge-tab,.edge-tab.is-left{--tuck:0;position:relative;left:auto;right:auto;top:auto;flex:1 0 auto;width:auto;height:100%;padding:0 6px 2px;border-radius:7px 7px 0 0;background:linear-gradient(to bottom,#f2ede2,#e6dfd1 70%,#cbc2b0);box-shadow:0 -2px 6px #0004;font-size:10px;letter-spacing:.03em;text-transform:none}
+  .edge-tab span,.edge-tab.is-left span{writing-mode:horizontal-tb;transform:none}
+  .edge-tab[aria-current=true]{background:#2b2a25;color:#f2ede2}
+  .edge-tab.emerge{animation:none}
+  .mosaic-page{height:360px}
+  .mosaic{gap:6px 5px;padding:14px 12px}
+  .mosaic-ticket{right:10px;bottom:13px;width:calc(37.5% - 14px);padding:7px 9px}
+  .mosaic-ticket strong{font-size:13px}
+  .mosaic-ticket small:last-child{display:none}
+  .contents-page .collection-heading h2{font-size:56px}
+  .toc li{grid-template-columns:1fr;gap:2px;padding:9px 0 8px}
+  .toc-chapter{font-size:20px}
+  .toc-names{font-size:13px;line-height:2}
+  .board-page{height:auto;min-height:250px}
+  .board{position:relative;inset:auto;padding:58px 18px 26px;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 14px}
+  .board-sample{max-width:104px;justify-self:center}
+  .board.is-empty{min-height:250px}
+  .selection-page{height:auto}
+  .selection-list{max-height:none;overflow:visible}
+  .secondary-actions{flex-direction:column}
+  .swatches.many{grid-template-columns:repeat(8,minmax(0,1fr));gap:9px 5px}
+  .swatches.many .swatch{--z:2.4px;padding:3px 2px 2px;gap:3px}
+  .chapter-tabs{gap:5px}
+  .strip-caption{font-size:9px}
+  .strip-row{max-width:44vw;padding:2px 10px 0}
+  .strip-chip img{width:28px;height:28px}
+}
+@media(max-width:389px){
+  .mosaic-ticket strong{font-size:12px}
+  .board{grid-template-columns:repeat(3,minmax(0,1fr));padding-left:12px;padding-right:12px}
+  .strip-row{max-width:40vw}
+}
+@media(prefers-reduced-motion:reduce){.edge-tab.emerge{animation:none}}

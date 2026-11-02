@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#0e0d0b">
+  <script src="intro-policy.js"></script>
+  <title>Fabric’s — альбом тканей</title>
+  <meta name="description" content="Альбом мебельных тканей Fabric’s: 53 коллекции в семи разделах. Рассматривайте настоящие фактуры, выбирайте оттенки и собирайте подборку образцов.">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Forum&family=Jost:wght@400;450;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="scene.css">
+  <link rel="stylesheet" href="pages.css">
+  <link rel="stylesheet" href="intro.css">
+  <script src="collections.js" defer></script>
+  <script src="photo-brightness.js" defer></script>
+  <script src="scene.js" defer></script>
+  <script src="turn-physics.js" defer></script>
+  <script src="intro.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <svg class="icon-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><rect x="14" y="14" width="6" height="6"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6c-3-2-6-2-10-1v15c4-1 7-1 10 1 3-2 6-2 10-1V5c-4-1-7-1-10 1Zm0 0v15"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.2 5.8a5.2 5.2 0 0 0-7.4 0l-.8.8-.8-.8a5.2 5.2 0 0 0-7.4 7.4L12 21l8.2-7.8a5.2 5.2 0 0 0 0-7.4Z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5M3 3l6 6m12-6-6 6M3 21l6-6m12 6-6-6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+  </defs></svg>
+  <a class="skip" href="#book">К альбому</a>
+  <div class="scene-background" aria-hidden="true"><div class="backdrop-layer" id="backdrop-a"></div><div class="backdrop-layer" id="backdrop-b"></div></div>
+  <div class="scene-vignette" aria-hidden="true"></div>
+  <div class="intro-curtain" id="intro-curtain" hidden aria-hidden="true"></div>
+  <a class="brand scene-brand" href="#soderzhanie" aria-label="Fabric’s — к содержанию альбома"><img src="assets/logo-white.svg" alt="Fabric’s" width="132" height="30"></a>
+  <nav class="scene-tools" aria-label="Альбом"><button class="header-button" id="contents-open" type="button"><svg class="icon"><use href="#i-grid"/></svg><span>Коллекции</span></button><button class="header-button saved-open" id="samples-open" type="button" aria-label="Моя подборка: 0 образцов"><svg class="icon"><use href="#i-heart"/></svg><span class="saved-label">Моя подборка</span><span class="sample-count" data-sample-count>0</span></button></nav>
+
+  <main class="scene-content">
+    <h1 class="sr-only">Fabric’s — альбом тканей</h1>
+    <section class="album" aria-label="Альбом коллекций">
+      <div class="book-rig" id="book-rig">
+      <div class="book-position" id="book-position">
+      <div class="book" id="book" tabindex="-1" aria-label="Альбом. Стрелки влево и вправо — сменить коллекцию.">
+        <div class="spread" id="spread"></div>
+        <div class="binding" aria-hidden="true"></div>
+        <nav class="edge-tabs" id="edge-tabs" aria-label="Разделы альбома"></nav>
+        <div class="intro-cover-shell" id="intro-cover-shell" role="button" tabindex="0" aria-label="Открыть альбом тканей" hidden>
+          <span class="intro-contact-shadow" id="intro-contact-shadow" aria-hidden="true"></span><span class="intro-contact-edge" id="intro-contact-edge" aria-hidden="true"></span>
+          <div class="album-cover" id="intro-cover"><div class="cover-stamp"><span class="cover-foil" aria-hidden="true"></span><span class="cover-title">Альбом тканей</span></div></div>
+        </div>
+      </div>
+      </div>
+      </div>
+      <nav class="album-navigation" aria-label="Перелистывание коллекций">
+        <button class="page-nav previous" id="previous" type="button"><svg class="icon"><use href="#i-arrow"/></svg><span id="previous-name">Назад</span></button>
+        <div class="chapter-tabs" id="chapter-tabs" aria-label="Коллекции раздела"></div>
+        <button class="page-nav next" id="next" type="button"><span id="next-name">Далее</span><svg class="icon"><use href="#i-arrow"/></svg></button>
+      </nav>
+      <p class="gesture-hint"><svg class="icon"><use href="#i-book"/></svg><span class="desktop-hint">Потяните страницу или нажмите на стрелку</span><span class="phone-hint">Листайте вбок, чтобы открыть следующую страницу</span></p>
+    </section>
+  </main>
+  <div class="intro-copy" id="intro-copy" hidden><p class="intro-eyebrow">Знакомство с материалом</p><p class="intro-lead">Листайте коллекции.<br>Собирайте свои сочетания.</p><p class="intro-count" id="intro-count">53 коллекции <span>·</span> 845 оттенков</p><button type="button" class="intro-open" id="intro-open">Открыть альбом <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+  <button type="button" class="intro-skip" id="intro-skip" hidden>Пропустить <span aria-hidden="true">×</span></button>
+  <div class="mobile-save" id="mobile-save"></div>
+  <p class="sr-only" id="page-status" role="status" aria-live="polite"></p>
+  <div class="toast" id="toast" role="status"></div>
+
+  <dialog class="panel-dialog" id="contents" aria-labelledby="contents-title">
+    <div class="dialog-heading"><div><p class="eyebrow">Оглавление альбома</p><h2 id="contents-title">Коллекции</h2></div><button class="close-button" data-close type="button" aria-label="Закрыть коллекции"><svg class="icon"><use href="#i-close"/></svg></button></div>
+    <label class="search"><svg class="icon"><use href="#i-search"/></svg><input id="collection-search" type="search" placeholder="Название или оттенок: Brabus 25" aria-label="Найти коллекцию или оттенок" autocomplete="off"></label>
+    <div class="contents-list" id="contents-list"></div>
+    <p class="dialog-note">53 коллекции в семи разделах. Ищите по названию — латиницей или по-русски — и по номеру: «Brabus 25», «тиффани 3».</p>
+  </dialog>
+
+  <dialog class="zoom-dialog" id="zoom" aria-labelledby="zoom-title">
+    <div class="dialog-heading"><div><p class="eyebrow">Рассмотрите материал</p><h2 id="zoom-title"></h2></div><button class="close-button" data-close type="button" aria-label="Закрыть фотографию"><svg class="icon"><use href="#i-close"/></svg></button></div>
+    <div class="zoom-toolbar"><div class="view-switch" id="zoom-switch" aria-label="Вид фотографии"></div><button class="text-button" id="zoom-in" type="button" aria-pressed="false">Увеличить +</button></div>
+    <div class="zoom-image-wrap" id="zoom-image-wrap"><img id="zoom-image" alt=""></div>
+    <p class="dialog-note">Настоящая фотография оттенка. Освещение и экран влияют на восприятие цвета.</p>
+  </dialog>
+  <noscript><p class="no-script">Для перелистывания альбома включите JavaScript в браузере.</p></noscript>
+</body>
+</html>
