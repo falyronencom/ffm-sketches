@@ -263,8 +263,9 @@
     renderBook();
     const nextHeight = book.getBoundingClientRect().height;
     if (mobile) book.style.minHeight = Math.max(oldHeight,nextHeight) + 'px';
-    const duration = mobile ? 720 : 1150;
-    const easing = mobile ? 'cubic-bezier(.32,.05,.2,1)' : 'cubic-bezier(.25,.08,.75,1)';
+    // On a phone the page turns a little longer and with a softer curve, so a flick still reads as a turn.
+    const duration = mobile ? 1000 : 1150;
+    const easing = mobile ? 'cubic-bezier(.35,.12,.3,1)' : 'cubic-bezier(.25,.08,.75,1)';
     // One inherited-property animation drives geometry and lighting. Seeking,
     // reversing and cancelling a drag therefore cannot desynchronise shadows.
     // Actual opacity stays off the desktop scene/leaf, preserving Chrome 3D.
@@ -319,7 +320,8 @@
       else g.target = target;
     }
     if (g.turn) {
-      const progress = Math.max(0,Math.min(.93,dx * g.direction / (book.clientWidth * .72)));
+      // On a phone the finger drives at most half of the turn; the rest always plays as animation.
+      const progress = Math.max(0,Math.min(smallScreen.matches ? .5 : .93,dx * g.direction / (book.clientWidth * (smallScreen.matches ? 1.15 : .72))));
       g.turn.animation.currentTime = progress * g.turn.duration;
     }
   });
@@ -331,7 +333,12 @@
     if (g.turn) {
       g.turn.commit = !cancelled && g.dx * g.direction > 55;
       if (!g.turn.commit && !g.turn.animation.currentTime) g.turn.finish();
-      else { g.turn.animation.playbackRate = g.turn.commit ? 1 : -1;g.turn.animation.play(); }
+      else {
+        // A quick flick must not fire the page away: whatever is left plays for at least about half a second.
+        const t = g.turn.animation.currentTime, left = g.turn.commit ? g.turn.duration - t : t;
+        g.turn.animation.playbackRate = (g.turn.commit ? 1 : -1) * Math.min(1,left / (smallScreen.matches ? 600 : 520));
+        g.turn.animation.play();
+      }
     } else if (g.horizontal && !cancelled && Math.abs(g.dx) > 55 && g.target !== undefined) navigate(g.target);
     if (g.horizontal) setTimeout(() => { state.suppressClick = false; },0);
   }

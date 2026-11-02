@@ -16,7 +16,8 @@
         '--turn-landing-width':`${44*Math.max(0,(p-.6)/.4)}%`,
         '--turn-glint':`${120-140*p}%`
       };
-      if (mobile) frame['--turn-opacity'] = p <= .5 ? 1 : 2*(1-p);
+      // The phone leaf stays solid until 60% of the turn, then fades as it passes the edge.
+      if (mobile) frame['--turn-opacity'] = p <= .6 ? 1 : (1-p)/.4;
       return frame;
     });
   }
