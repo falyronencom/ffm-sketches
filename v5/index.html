@@ -21,6 +21,7 @@
   <script src="scene.js" defer></script>
   <script src="turn-physics.js" defer></script>
   <script src="intro.js" defer></script>
+  <script src="viewer.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -79,11 +80,20 @@
     <p class="dialog-note">53 коллекции в семи разделах. Ищите по названию — латиницей или по-русски — и по номеру: «Brabus 25», «тиффани 3».</p>
   </dialog>
 
-  <dialog class="zoom-dialog" id="zoom" aria-labelledby="zoom-title">
-    <div class="dialog-heading"><div><p class="eyebrow">Рассмотрите материал</p><h2 id="zoom-title"></h2></div><button class="close-button" data-close type="button" aria-label="Закрыть фотографию"><svg class="icon"><use href="#i-close"/></svg></button></div>
-    <div class="zoom-toolbar"><div class="view-switch" id="zoom-switch" aria-label="Вид фотографии"></div><button class="text-button" id="zoom-in" type="button" aria-pressed="false">Увеличить +</button></div>
-    <div class="zoom-image-wrap" id="zoom-image-wrap"><img id="zoom-image" alt=""></div>
-    <p class="dialog-note">Настоящая фотография оттенка. Освещение и экран влияют на восприятие цвета.</p>
+  <dialog class="viewer" id="viewer" aria-labelledby="viewer-title">
+    <div class="viewer-stage" id="viewer-stage"><img id="viewer-image" alt="" draggable="false"><img id="viewer-fade" alt="" draggable="false" aria-hidden="true" hidden></div>
+    <div class="viewer-top">
+      <div class="viewer-heading"><p class="viewer-eyebrow">Рассмотрите материал</p><h2 id="viewer-title"></h2></div>
+      <div class="viewer-switch" id="viewer-switch" role="group" aria-label="Вид фотографии"></div>
+      <button class="viewer-close" id="viewer-close" type="button" aria-label="Закрыть просмотр"><span class="viewer-key" aria-hidden="true">Esc</span><svg class="icon"><use href="#i-close"/></svg></button>
+    </div>
+    <button class="viewer-step previous" id="viewer-prev" type="button"><svg class="icon"><use href="#i-arrow"/></svg></button>
+    <button class="viewer-step next" id="viewer-next" type="button"><svg class="icon"><use href="#i-arrow"/></svg></button>
+    <div class="viewer-bottom">
+      <div class="viewer-strip" id="viewer-strip" role="group" aria-label="Оттенки коллекции"></div>
+      <div class="viewer-zoom"><span class="viewer-hint" id="viewer-hint"></span><span class="viewer-scale"><button type="button" id="viewer-out" aria-label="Уменьшить">−</button><output id="viewer-scale" aria-live="polite">100%</output><button type="button" id="viewer-in" aria-label="Увеличить">+</button></span></div>
+      <p class="viewer-note">Настоящая фотография оттенка. Освещение и экран влияют на восприятие цвета.</p>
+    </div>
   </dialog>
   <noscript><p class="no-script">Для перелистывания альбома включите JavaScript в браузере.</p></noscript>
 </body>

@@ -77,7 +77,7 @@
       <p class="collection-note">${esc(c.note)}</p>
       <div class="palette-heading"><strong>Выберите оттенок</strong><span>${n} ${plural(n,SHADES)} / <span class="shade-current">${esc(s.label)}</span></span></div>
       <div class="swatches${n <= 6 ? ' short' : n > 30 ? ' many' : ''}" role="group" aria-label="Оттенки ${esc(c.name)}">${c.shades.map((t,i) => `<button type="button" class="swatch${saved(c.name,t.label) ? ' is-saved' : ''}" data-shade="${esc(t.label)}" data-shade-index="${i}" aria-label="${esc(c.name)} ${esc(t.label)}${saved(c.name,t.label) ? ', в подборке' : ''}" aria-pressed="${s.label === t.label}">${sampleHTML(t.thumb,i)}<span class="swatch-label">${esc(t.label)}</span></button>`).join('')}</div>
-      <dl class="specs"><div><dt>Износостойкость</dt><dd>${esc(c.specs.martindale.replace(' циклов',''))} <small>циклов</small></dd></div><div><dt>Плотность</dt><dd>${esc(density)} <small>г/м²</small></dd></div><div><dt>Состав</dt><dd>${blend ? `${esc(blend[1])} <small>${esc(blend[2])}</small>` : `<small>${esc(c.specs.composition)}</small>`}</dd></div></dl>
+      <div class="sample-label"><p class="label-head"><span>Этикетка образца</span><span>Ширина ${esc(c.specs.width.replace('+/-','±'))}</span></p><dl class="specs"><div><dt>Арт.</dt><dd>${esc(c.name)} ${esc(s.label)}</dd></div><div><dt>Износостойкость</dt><dd>${esc(c.specs.martindale.replace(' циклов',''))} <small>циклов</small></dd></div><div><dt>Плотность</dt><dd>${esc(density)} <small>г/м²</small></dd></div><div><dt>Состав</dt><dd>${blend ? `${esc(blend[1])} <small>${esc(blend[2])}</small>` : `<small>${esc(c.specs.composition)}</small>`}</dd></div></dl></div>
       ${addHTML(c)}<p class="detail-action-note">Сохраните оттенок — он появится на последней странице альбома</p>
     </section>`;
   }
@@ -383,7 +383,7 @@
     window.ALBUM_SCENE?.resetMotion();
     dialog.showModal();
   }
-  $$('dialog').forEach(dialog => {
+  $$('dialog:not(#viewer)').forEach(dialog => {
     $('[data-close]',dialog).addEventListener('click',() => dialog.close());
     dialog.addEventListener('click',e => {
       if (e.target !== dialog) return;
@@ -464,28 +464,8 @@
     else navigate(lastPage);
   });
 
-  let zoomView = 'flat';
-  function renderZoom() {
-    const c = current(), s = shadeFor(c);
-    $('#zoom-title').textContent = c.name + ' ' + s.label;
-    $('#zoom-switch').innerHTML = c.drapedOnly ? '' : switchHTML(zoomView,'data-zoom-view');
-    $('#zoom-image').src = zoomView === 'flat' ? s.flat : s.draped || s.flat;
-    $('#zoom-image').alt = `${c.name} ${s.label} — ${zoomView === 'flat' ? 'фактура' : 'драпировка'}`;
-  }
-  function openZoom(trigger) {
-    if (!current()) return;
-    zoomView = state.views[current().name];
-    $('#zoom-image-wrap').classList.remove('enlarged');$('#zoom-in').setAttribute('aria-pressed','false');$('#zoom-in').textContent = 'Увеличить +';
-    renderZoom();openDialog($('#zoom'),trigger);
-  }
-  $('#zoom-switch').addEventListener('click',e => {
-    const b = e.target.closest('[data-zoom-view]');
-    if (b) { zoomView = b.dataset.zoomView;renderZoom();$(`[data-zoom-view="${zoomView}"]`,$('#zoom')).focus(); }
-  });
-  $('#zoom-in').addEventListener('click',e => {
-    const on = $('#zoom-image-wrap').classList.toggle('enlarged');
-    e.currentTarget.setAttribute('aria-pressed',String(on));e.currentTarget.textContent = on ? 'Вписать в экран −' : 'Увеличить +';
-  });
+  const viewer = window.ALBUM_VIEWER.init({current,shadeFor,selectShade:label => selectShade(label),view:c => state.views[c.name]});
+  function openZoom(trigger) { if (current() && !state.turn) viewer.open(trigger); }
   $('.brand').addEventListener('click',e => { e.preventDefault();if (state.index === 0) book.scrollIntoView({block:'start'});else navigate(0); });
   window.addEventListener('hashchange',() => {
     if(state.introActive)return;
