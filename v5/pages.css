@@ -100,7 +100,7 @@
 .strip-chip img{width:30px;height:30px;object-fit:cover}
 .strip-chip[aria-current=true]{opacity:1;border-color:#e5ddcc}
 .strip-chip:hover{opacity:1}
-html[data-page=contents] .mobile-save,html[data-page=selection] .mobile-save{display:none}
+html[data-album-page=contents] .mobile-save,html[data-album-page=selection] .mobile-save{display:none}
 /* Сообщение о подборке — под логотипом, чтобы не закрывать ленту коллекций под книгой. */
 @media(min-width:900px){.toast{top:64px;bottom:auto;transform:translate(-50%,-14px)}.toast.show{transform:translate(-50%,0)}}
 @media(min-width:900px) and (max-height:820px){.toast{top:56px}}

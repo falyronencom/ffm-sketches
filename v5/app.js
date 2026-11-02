@@ -137,7 +137,7 @@
   function renderBook(focusSelector) {
     const p = page();
     spread.innerHTML = p.kind === 'contents' ? contentsSpread() : p.kind === 'selection' ? selectionSpread() : photoPage(p.c) + detailPage(p.c);
-    document.documentElement.dataset.page = p.kind;
+    document.documentElement.dataset.albumPage = p.kind;
     updateSavedUI();
     if (focusSelector) $(focusSelector,spread)?.focus({preventScroll:true});
   }
@@ -249,7 +249,7 @@
   }
 
   function beginTurn(target) {
-    if (state.introActive || state.turn || target === state.index || target < 0 || target > lastPage) return null;
+    if (state.introActive || state.turn || !Number.isInteger(target) || target === state.index || target < 0 || target > lastPage) return null;
     const from = state.index, forward = target > from, mobile = smallScreen.matches;
     if (reducedMotion.matches) {
       setCollectionIndex(target); renderBook(); updateNavigation(); setURL(); pageStatus();
@@ -289,6 +289,7 @@
   }
 
   function navigate(target) {
+    if (!Number.isInteger(target)) return;
     if (smallScreen.matches && target >= 0 && target <= lastPage && target !== state.index && book.getBoundingClientRect().top < -20) book.scrollIntoView({block:'start',behavior:'auto'});
     // Keep keyboard focus in the strip or on the tabs when the page changes under it.
     const area = document.activeElement?.closest('#chapter-tabs,#edge-tabs');
@@ -350,7 +351,7 @@
   book.addEventListener('click',e => {
     if (state.turn) return;
     const b = e.target.closest('[data-shade],[data-view],[data-add],[data-zoom],[data-page],[data-saved-open],[data-remove],[data-send],[data-copy]');
-    if (!b) return;
+    if (!b || !book.contains(b)) return;
     if (b.hasAttribute('data-shade')) selectShade(b.dataset.shade,true);
     else if (b.hasAttribute('data-view')) {
       state.views[current().name] = b.dataset.view;
@@ -367,7 +368,8 @@
   $('#next').addEventListener('click',() => navigate(state.index + 1));
   $('#chapter-tabs').addEventListener('click',e => {
     const b = e.target.closest('[data-page]');
-    if (b) navigate(Number(b.dataset.page));
+    if (!b || !e.currentTarget.contains(b)) return;
+    navigate(Number(b.dataset.page));
   });
   document.addEventListener('keydown',e => {
     if (state.introActive || $('dialog[open]') || state.turn || e.altKey || e.metaKey || e.ctrlKey || e.target.matches('input,textarea,select')) return;
