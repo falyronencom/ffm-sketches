@@ -49,8 +49,32 @@
     }
     scene.append(leaf);decorate(scene,forward,mobile);host.append(scene);
     const degrees=(forward?-1:1)*(mobile?105:180);
-    const animation=scene.animate(frames(degrees,mobile),{duration,easing,fill:'both'});animation.pause();
+    const timing={duration,easing,fill:'both'};
+    let animation;
+    if(!mobile)animation=scene.animate(frames(degrees,false),timing);
+    else{
+      // On a phone the leaf is a clone of the whole page. Inherited custom properties animated on the
+      // scene made the browser restyle every element of that clone on every frame (Samsung A72: 7 frames
+      // per turn). The leaf now turns and fades with transform and opacity of its own, which the
+      // compositor runs; only the two small shadow bands keep the custom properties. The animations
+      // share timing and are driven together, so dragging and reversing stay in step.
+      const list=frames(degrees,true);
+      const leafFrames=list.map(f=>({offset:f.offset,transform:`rotateY(${f['--turn-angle']})`,opacity:f['--turn-opacity']}));
+      const shadowFrames=list.map(f=>({offset:f.offset,'--turn-reveal-opacity':f['--turn-reveal-opacity'],'--turn-reveal-width':f['--turn-reveal-width'],'--turn-landing-opacity':f['--turn-landing-opacity'],'--turn-landing-width':f['--turn-landing-width']}));
+      animation=together([leaf.animate(leafFrames,timing),...[...scene.querySelectorAll('.turn-shadow-page')].map(p=>p.animate(shadowFrames,timing))]);
+    }
+    animation.pause();
     return {scene,leaf,animation,duration};
+  }
+  // Several animations behind the interface of one: time, rate, play, pause, cancel, finished.
+  function together(list) {
+    const lead=list[0];
+    return {
+      get currentTime(){return lead.currentTime;},set currentTime(t){for(const a of list)a.currentTime=t;},
+      get playbackRate(){return lead.playbackRate;},set playbackRate(r){for(const a of list)a.playbackRate=r;},
+      play(){for(const a of list)a.play();},pause(){for(const a of list)a.pause();},cancel(){for(const a of list)a.cancel();},
+      get finished(){return lead.finished;}
+    };
   }
   window.ALBUM_TURN_PHYSICS = {frames,decorate,create};
 })();

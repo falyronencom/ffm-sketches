@@ -107,7 +107,8 @@
   }
   function updatePhoto(){
     const s=current.shades[index], draped=photoMode==='draped' && s.draped;
-    $('#ffm-photo').src=src(draped?s.draped:s.flat);
+    const original=draped?s.draped:s.flat;
+    $('#ffm-photo').src=window.FFM_PHOTOS?.resolve(original,assetBase) || src(original);
     $('#ffm-photo').alt=current.name+' '+s.label+(draped?' — ткань с драпировкой':' — плоский образец ткани');
     $('#ffm-photo-caption').textContent=current.name+' / '+s.label;
     detail.querySelector('[data-photo="draped"]').disabled=!s.draped;

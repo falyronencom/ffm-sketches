@@ -52,16 +52,18 @@
 
   function setCollection(collection,label,options={}) {
     const shade = collection.shades.find(s => s.label === label) || collection.shades[0];
-    const source = shade.draped || shade.flat;
+    const original = shade.draped || shade.flat;
+    const source = window.FFM_PHOTOS?.resolve(original) || original;
     if (source === desiredSource && options.duration!==0) return;
     if(options.duration===0){queued=null;if(fade){layers[fade.next].style.transition='none';finishFade();}}
     desiredSource = source;
     const id = ++request;
-    const image = new Image();image.src = source;
-    const ready = image.decode ? image.decode() : new Promise((resolve,reject) => { image.onload = resolve;image.onerror = reject; });
-    ready.then(() => {
+    const ready = window.FFM_PHOTOS ? window.FFM_PHOTOS.load(source) : (async () => {
+      const image = new Image();image.src = source;await image.decode();return image;
+    })();
+    ready.then(image => {
       if (id !== request) return;
-      queued = {source,brightness:brightness[source] ?? .5,duration:options.duration??1200};
+      queued = {source:image.src,brightness:window.FFM_PHOTOS?.brightness(original,brightness[original] ?? .5) ?? brightness[original] ?? .5,duration:options.duration??1200};
       // Exactly two layers are reused. While a crossfade is running, only the
       // latest state is queued; old image-decode completions cannot win a race.
       flushBackground();

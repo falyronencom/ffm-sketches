@@ -14,7 +14,10 @@
     let collection = null, view = 'draped', returnTo = null, flying = null, frame = 0;
     let base = {x:0,y:0,w:0,h:0}, now = {s:1,tx:0,ty:0}, target = {s:1,tx:0,ty:0}, velocity = {x:0,y:0};
     const shade = () => app.shadeFor(collection);
-    const sourceOf = s => view === 'flat' ? s.flat : s.draped || s.flat;
+    const sourceOf = s => {
+      const source = view === 'flat' ? s.flat : s.draped || s.flat;
+      return window.FFM_PHOTOS?.resolve(source) || source;
+    };
 
     // The box the photo is fitted into: under the title, above the strip and the zoom controls.
     function area() {
@@ -90,7 +93,7 @@
         ghost.hidden = false;
       }
       img.src = src;
-      return (img.decode ? img.decode() : Promise.resolve()).catch(() => {}).then(() => {
+      return (window.FFM_PHOTOS ? window.FFM_PHOTOS.decode(img) : img.decode ? img.decode() : Promise.resolve()).catch(() => {}).then(() => {
         fit();reset(true);
         if (!ghost.hidden) ghost.animate([{opacity:1},{opacity:0}],{duration:320,easing:'ease-out'}).finished.then(() => { ghost.hidden = true; }).catch(() => {});
       });
@@ -139,7 +142,7 @@
       window.ALBUM_SCENE?.resetMotion();
       dialog.classList.add('is-flying');
       dialog.showModal();
-      (img.decode ? img.decode() : Promise.resolve()).catch(() => {}).then(() => { fit();paint();fly(true); });
+      (window.FFM_PHOTOS ? window.FFM_PHOTOS.decode(img) : img.decode ? img.decode() : Promise.resolve()).catch(() => {}).then(() => { fit();paint();fly(true); });
     }
     function close() {
       if (flying || !dialog.open) return;
@@ -180,7 +183,9 @@
       // A trackpad pinch arrives as wheel + ctrlKey with small steps.
       zoomAt(target.s * Math.exp(-e.deltaY * (e.ctrlKey ? .012 : .0018)),e.clientX,e.clientY);
     },{passive:false});
-    stage.addEventListener('dblclick',e => { if (!flying) toggleAt(e.clientX,e.clientY); });
+    // A touch double tap is recognised in endPointer; the browser's own dblclick after it would toggle back.
+    let lastPointer = 'mouse';
+    stage.addEventListener('dblclick',e => { if (!flying && lastPointer === 'mouse') toggleAt(e.clientX,e.clientY); });
 
     // One gesture model for mouse, pen and touch: one pointer pans (or, at 1× on a touch screen,
     // swipes — down closes, sideways changes the shade), two pointers pinch.
@@ -193,6 +198,7 @@
       return {mid,distance,from:{...target},start:mid,last:{...mid,t:performance.now()},moved:0,began:performance.now(),touch:points.length && [...pointers.values()][0].touch};
     }
     stage.addEventListener('pointerdown',e => {
+      lastPointer = e.pointerType;
       if (flying || (e.pointerType === 'mouse' && e.button !== 0)) return;
       stage.setPointerCapture(e.pointerId);
       pointers.set(e.pointerId,{x:e.clientX,y:e.clientY,touch:e.pointerType !== 'mouse'});

@@ -90,7 +90,7 @@ dialog::backdrop{background:#060605a6;backdrop-filter:blur(5px)}
   .palette-heading span{font-size:10px}
   .swatches{min-height:132px;margin-bottom:10px;row-gap:5px}
   .swatch{min-height:39px}
-  .swatch .swatch-cut{max-height:33px}
+  .swatch .swatch-sample{width:min(100%,34px);align-self:center}
   .swatch-label{font-size:8px}
   .specs{padding-top:11px;margin-bottom:13px}
   .specs dt{font-size:8px}

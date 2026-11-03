@@ -39,7 +39,10 @@
   const shadeFor = c => c.shades.find(s => s.label === state.selected[c.name]) || c.shades[0];
   const saved = (name,label) => state.samples.some(s => s.name === name && s.label === label);
   const sampleItems = () => state.samples.map(item => { const c = collections.find(c => c.name === item.name);return {c,s:c.shades.find(s => s.label === item.label)}; });
-  const photoFor = c => state.views[c.name] === 'flat' ? shadeFor(c).flat : shadeFor(c).draped || shadeFor(c).flat;
+  const photoFor = c => {
+    const source = state.views[c.name] === 'flat' ? shadeFor(c).flat : shadeFor(c).draped || shadeFor(c).flat;
+    return window.FFM_PHOTOS?.resolve(source) || source;
+  };
   // Small fixed tilts make the cut samples look glued by hand, without random jitter between renders.
   const tilt = i => (((i * 7 + 3) % 5) - 2) * .35 + 'deg';
   function sceneFor(p) {
@@ -55,7 +58,8 @@
     const s = shadeFor(c), included = saved(c.name,s.label);
     return `<button type="button" class="primary${mobile ? '' : ' desktop-add'}" data-add ${included ? 'disabled' : ''}>${mobile ? included ? 'В подборке' : 'Образец' : included ? 'В подборке' : 'Добавить образец'}${icon(included ? 'check' : 'plus')}</button>`;
   };
-  const sampleHTML = (src,i) => `<span class="swatch-sample" style="--tilt:${tilt(i)}"><span class="swatch-cut"><img src="${esc(src)}" alt="" draggable="false"></span></span>`;
+  // The pinked edge and the shadow are baked into the sample image at build time (assets/c/).
+  const sampleHTML = (src,i) => `<span class="swatch-sample" style="--tilt:${tilt(i)}"><img src="${esc(src)}" alt="" draggable="false"></span>`;
 
   function photoPage(c) {
     const s = shadeFor(c), index = collections.indexOf(c);
@@ -76,7 +80,7 @@
       <div class="collection-heading"><h2 id="collection-title">${esc(c.name)}</h2><span class="material-category">${esc(c.cat)}</span></div>
       <p class="collection-note">${esc(c.note)}</p>
       <div class="palette-heading"><strong>Выберите оттенок</strong><span>${n} ${plural(n,SHADES)} / <span class="shade-current">${esc(s.label)}</span></span></div>
-      <div class="swatches${n <= 6 ? ' short' : n > 30 ? ' many' : ''}" role="group" aria-label="Оттенки ${esc(c.name)}">${c.shades.map((t,i) => `<button type="button" class="swatch${saved(c.name,t.label) ? ' is-saved' : ''}" data-shade="${esc(t.label)}" data-shade-index="${i}" aria-label="${esc(c.name)} ${esc(t.label)}${saved(c.name,t.label) ? ', в подборке' : ''}" aria-pressed="${s.label === t.label}">${sampleHTML(t.thumb,i)}<span class="swatch-label">${esc(t.label)}</span></button>`).join('')}</div>
+      <div class="swatches${n <= 6 ? ' short' : n > 30 ? ' many' : ''}" role="group" aria-label="Оттенки ${esc(c.name)}">${c.shades.map((t,i) => `<button type="button" class="swatch${saved(c.name,t.label) ? ' is-saved' : ''}" data-shade="${esc(t.label)}" data-shade-index="${i}" aria-label="${esc(c.name)} ${esc(t.label)}${saved(c.name,t.label) ? ', в подборке' : ''}" aria-pressed="${s.label === t.label}">${sampleHTML(t.cut,i)}<span class="swatch-label">${esc(t.label)}</span></button>`).join('')}</div>
       <div class="sample-label"><p class="label-head"><span>Этикетка образца</span><span>Ширина ${esc(c.specs.width.replace('+/-','±'))}</span></p><dl class="specs"><div><dt>Арт.</dt><dd>${esc(c.name)} ${esc(s.label)}</dd></div><div><dt>Износостойкость</dt><dd>${esc(c.specs.martindale.replace(' циклов',''))} <small>циклов</small></dd></div><div><dt>Плотность</dt><dd>${esc(density)} <small>г/м²</small></dd></div><div><dt>Состав</dt><dd>${blend ? `${esc(blend[1])} <small>${esc(blend[2])}</small>` : `<small>${esc(c.specs.composition)}</small>`}</dd></div></dl></div>
       ${addHTML(c)}<p class="detail-action-note">Сохраните оттенок — он появится на последней странице альбома</p>
     </section>`;
@@ -84,7 +88,7 @@
 
   // Contents: every collection as a cut sample on the left, the chapters in words on the right.
   function contentsSpread() {
-    const tiles = collections.map((c,i) => `<button type="button" class="mosaic-tile" data-page="${i + 1}" aria-label="${esc(c.name)}, ${esc(chapters[c.chapter].title)}"><img src="${esc(shadeFor(c).thumb)}" alt="" draggable="false"><span>${esc(c.name)}</span></button>`).join('');
+    const tiles = collections.map((c,i) => `<button type="button" class="mosaic-tile" data-page="${i + 1}" aria-label="${esc(c.name)}, ${esc(chapters[c.chapter].title)}"><img src="${esc(shadeFor(c).cut)}" alt="" draggable="false"><span>${esc(c.name)}</span></button>`).join('');
     const toc = chapters.map((ch,i) => `<li><button type="button" class="toc-chapter" data-page="${chapterStart[i]}"><span>${pad(i + 1)}</span>${esc(ch.title)}</button><p class="toc-names">${collections.filter(c => c.chapter === i).map(c => `<button type="button" data-page="${pageOf(c)}">${esc(c.name)}</button>`).join('<span aria-hidden="true"> · </span>')}</p></li>`).join('');
     return `<figure class="photo-page mosaic-page">
       <div class="mosaic" role="group" aria-label="Все коллекции альбома">${tiles}</div>
@@ -102,7 +106,7 @@
   // The last spread gathers the saved samples into one list for the manager.
   function selectionSpread() {
     const items = sampleItems(), count = items.length, shown = items.slice(-12), more = count - shown.length;
-    const board = shown.length ? shown.map(({c,s},i) => `<button type="button" class="board-sample" data-saved-open="${more + i}" aria-label="Открыть ${esc(c.name)} ${esc(s.label)}">${sampleHTML(s.thumb,i * 3 + 1)}<span class="board-tag">${esc(c.name)} <b>${esc(s.label)}</b></span></button>`).join('')
+    const board = shown.length ? shown.map(({c,s},i) => `<button type="button" class="board-sample" data-saved-open="${more + i}" aria-label="Открыть ${esc(c.name)} ${esc(s.label)}">${sampleHTML(s.cut,i * 3 + 1)}<span class="board-tag">${esc(c.name)} <b>${esc(s.label)}</b></span></button>`).join('')
       : `<p class="board-empty"><span class="board-ghosts" aria-hidden="true"><i></i><i></i><i></i></span>Здесь соберутся образцы, которые вы отметите на страницах коллекций.</p>`;
     const rows = items.map(({c,s},i) => `<article class="sample-row"><button type="button" class="sample-photo" data-saved-open="${i}" aria-label="Открыть ${esc(c.name)} ${esc(s.label)}"><img src="${esc(s.thumb)}" alt="" width="44" height="44"></button><button type="button" class="sample-info" data-saved-open="${i}"><strong>${esc(c.name)} ${esc(s.label)}</strong><small>${esc(c.cat)} · ${esc(c.subtitle)}</small></button><button class="remove-sample" type="button" data-remove="${i}" aria-label="Убрать ${esc(c.name)} ${esc(s.label)} из подборки">${icon('close')}</button></article>`).join('');
     return `<figure class="photo-page board-page">
@@ -241,7 +245,7 @@
   function preload(index) {
     const c = pages[index]?.c;
     if (!c) return;
-    for (const src of [photoFor(c),...c.shades.map(s => s.thumb)]) { const img = new Image(); img.src = src; }
+    for (const src of [photoFor(c),...c.shades.map(s => s.cut)]) { const img = new Image(); img.src = src; }
   }
   function pageStatus() {
     const p = page(), n = p.c?.shades.length;
@@ -491,7 +495,7 @@
   window.ALBUM_INTRO.init({
     book,spread,pageForHash,cover:foil.flat,
     // Only what the opening shows: the cover, its drape behind the book and the contents samples.
-    sources:[foil.flat,foil.draped,...collections.map(c => shadeFor(c).thumb)],
+    sources:[foil.flat,foil.draped,...collections.map(c => shadeFor(c).cut)],
     firstScene(options){ window.ALBUM_SCENE.setCollection(...sceneFor(pages[0]),options); },
     complete(index=0,immediate=false){
       // Skipping goes straight to the linked collection; a full opening shows the contents first.

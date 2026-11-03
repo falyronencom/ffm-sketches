@@ -1,23 +1,18 @@
 /* Страницы альбома на все коллекции: образцы с зубчатым краем, закладки разделов,
    содержание, доска подборки и лента коллекций раздела. Загружается после scene.css. */
 
-/* Образец, вырезанный зубчатыми ножницами. Две вложенные маски дают зубцы со всех
-   сторон: .swatch-cut — слева и справа, картинка — сверху и снизу. Тень — у обёртки,
-   иначе маска срезала бы её вместе с краем. */
-.swatch{--z:2.6px}
-.swatch-sample{display:block;width:100%;transform:rotate(var(--tilt,0deg));filter:drop-shadow(0 1px .6px #2a20103d) drop-shadow(0 2px 3px #2a201018);transition:transform .2s var(--ease),filter .2s}
-.swatch-cut{display:block;aspect-ratio:1;overflow:hidden;
-  -webkit-mask:conic-gradient(from 45deg at 0 50%,#000 90deg,#0000 0) left/var(--z) calc(2*var(--z)) repeat-y,linear-gradient(#000 0 0) center/calc(100% - 2*var(--z)) 100% no-repeat,conic-gradient(from -135deg at 100% 50%,#000 90deg,#0000 0) right/var(--z) calc(2*var(--z)) repeat-y;
-  mask:conic-gradient(from 45deg at 0 50%,#000 90deg,#0000 0) left/var(--z) calc(2*var(--z)) repeat-y,linear-gradient(#000 0 0) center/calc(100% - 2*var(--z)) 100% no-repeat,conic-gradient(from -135deg at 100% 50%,#000 90deg,#0000 0) right/var(--z) calc(2*var(--z)) repeat-y}
-.swatch-cut img{display:block;width:100%;height:100%;aspect-ratio:auto;object-fit:cover;
-  -webkit-mask:conic-gradient(from 135deg at 50% 0,#000 90deg,#0000 0) top/calc(2*var(--z)) var(--z) repeat-x,linear-gradient(#000 0 0) center/100% calc(100% - 2*var(--z)) no-repeat,conic-gradient(from -45deg at 50% 100%,#000 90deg,#0000 0) bottom/calc(2*var(--z)) var(--z) repeat-x;
-  mask:conic-gradient(from 135deg at 50% 0,#000 90deg,#0000 0) top/calc(2*var(--z)) var(--z) repeat-x,linear-gradient(#000 0 0) center/100% calc(100% - 2*var(--z)) no-repeat,conic-gradient(from -45deg at 50% 100%,#000 90deg,#0000 0) bottom/calc(2*var(--z)) var(--z) repeat-x}
+/* Образец, вырезанный зубчатыми ножницами. Зубчатый край и мягкая тень — уже в картинке
+   (assets/c/, собирает live_v5_build.py): маски и фильтры CSS на 20–60 образцах телефон
+   пересчитывал в каждом кадре листания. В картинке поле под тень — 10 из 160 px с каждой
+   стороны, поэтому она шире образца на 12,5% и сдвинута на 6,25%. */
+.swatch-sample{display:block;width:100%;transform:rotate(var(--tilt,0deg));transition:transform .2s var(--ease)}
+.swatch-sample img{display:block;width:112.5%;max-width:none;height:auto;aspect-ratio:1;margin:-6.25%}
 .swatch{padding:4px 3px 2px;gap:4px}
 .swatch:hover .swatch-sample{transform:translateY(-1px) rotate(0deg)}
-.swatch[aria-pressed=true] .swatch-sample{transform:translateY(-1px) rotate(0deg) scale(1.04);filter:drop-shadow(0 2px 1px #2a201045) drop-shadow(0 5px 6px #2a201030)}
+.swatch[aria-pressed=true] .swatch-sample{transform:translateY(-2px) rotate(0deg) scale(1.06)}
 .swatch-label{letter-spacing:.04em}
 .swatches.many{grid-template-columns:repeat(15,minmax(0,1fr));gap:5px 3px}
-.swatches.many .swatch{--z:2px;padding:2px 1px 1px;gap:2px;min-height:0}
+.swatches.many .swatch{padding:2px 1px 1px;gap:2px;min-height:0}
 .swatches.many .swatch-label{font-size:8px}
 
 /* Закладки разделов на обрезе. Как в печатном каталоге: закладки пройденных разделов
@@ -36,13 +31,9 @@
 
 /* Содержание: слева все коллекции образцами, справа — разделы словами. */
 .mosaic-page{background:#ece6da radial-gradient(ellipse at 45% 40%,#f8f4ec,transparent 75%)}
-.mosaic{--z:2.4px;position:absolute;inset:0;display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:repeat(7,1fr);gap:7px 6px;padding:20px 18px;filter:drop-shadow(0 1px .7px #2a201040) drop-shadow(0 2px 3px #2a20101c)}
-.mosaic-tile{display:block;min-width:0;min-height:0;padding:0;transition:transform .2s var(--ease);
-  -webkit-mask:conic-gradient(from 45deg at 0 50%,#000 90deg,#0000 0) left/var(--z) calc(2*var(--z)) repeat-y,linear-gradient(#000 0 0) center/calc(100% - 2*var(--z)) 100% no-repeat,conic-gradient(from -135deg at 100% 50%,#000 90deg,#0000 0) right/var(--z) calc(2*var(--z)) repeat-y;
-  mask:conic-gradient(from 45deg at 0 50%,#000 90deg,#0000 0) left/var(--z) calc(2*var(--z)) repeat-y,linear-gradient(#000 0 0) center/calc(100% - 2*var(--z)) 100% no-repeat,conic-gradient(from -135deg at 100% 50%,#000 90deg,#0000 0) right/var(--z) calc(2*var(--z)) repeat-y}
-.mosaic-tile img{width:100%;height:100%;object-fit:cover;
-  -webkit-mask:conic-gradient(from 135deg at 50% 0,#000 90deg,#0000 0) top/calc(2*var(--z)) var(--z) repeat-x,linear-gradient(#000 0 0) center/100% calc(100% - 2*var(--z)) no-repeat,conic-gradient(from -45deg at 50% 100%,#000 90deg,#0000 0) bottom/calc(2*var(--z)) var(--z) repeat-x;
-  mask:conic-gradient(from 135deg at 50% 0,#000 90deg,#0000 0) top/calc(2*var(--z)) var(--z) repeat-x,linear-gradient(#000 0 0) center/100% calc(100% - 2*var(--z)) no-repeat,conic-gradient(from -45deg at 50% 100%,#000 90deg,#0000 0) bottom/calc(2*var(--z)) var(--z) repeat-x}
+.mosaic{position:absolute;inset:0;display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:repeat(7,1fr);gap:4px 3px;padding:16px 14px}
+.mosaic-tile{display:block;min-width:0;min-height:0;padding:0;transition:transform .2s var(--ease)}
+.mosaic-tile img{width:100%;height:100%;object-fit:contain}
 .mosaic-tile span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
 .mosaic-tile:hover,.mosaic-tile:focus-visible{transform:scale(1.07)}
 .mosaic-tile:focus-visible{outline:0}
@@ -63,7 +54,7 @@
 /* Последний разворот: доска с образцами и список для менеджера. */
 .board-page{background:#ece6da radial-gradient(ellipse at 45% 40%,#f8f4ec,transparent 75%)}
 .board{position:absolute;inset:66px 28px 30px;display:grid;grid-template-columns:repeat(var(--cols,4),minmax(0,calc(var(--size,98px) * var(--shrink,1))));gap:22px 20px;align-content:center;justify-content:center}
-.board-sample{--z:3.4px;display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;padding:0}
+.board-sample{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;padding:0}
 .board-sample:hover .swatch-sample{transform:translateY(-2px) rotate(0deg)}
 .board-tag{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10px;color:#45463f;background:#faf9f5;padding:2px 7px;box-shadow:0 1px 2px #0000001a}
 .board-tag b{font-weight:600}
@@ -189,7 +180,7 @@ dialog.viewer::backdrop{background:transparent;backdrop-filter:none}
   .palette-heading span{font-size:10px}
   .swatches{flex:0 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:4px 3px;margin:-4px -3px 8px;row-gap:4px;scrollbar-width:thin}
   .swatch{min-height:39px}
-  .swatch .swatch-cut{max-height:33px}
+  .swatch .swatch-sample{width:min(100%,34px);align-self:center}
   .swatch-label{font-size:8px}
   .sample-label{margin-bottom:12px;padding:7px 12px 8px}
   .label-head{margin-bottom:6px;padding-bottom:5px}
@@ -229,7 +220,7 @@ dialog.viewer::backdrop{background:transparent;backdrop-filter:none}
   .swatches.many{grid-template-columns:repeat(8,minmax(0,1fr));gap:9px 5px}
   .sample-label{margin:0}
   .sample-label .specs{grid-template-columns:1fr 1fr;gap:10px 14px}
-  .swatches.many .swatch{--z:2.4px;padding:3px 2px 2px;gap:3px}
+  .swatches.many .swatch{padding:3px 2px 2px;gap:3px}
   .chapter-tabs{gap:5px}
   .strip-caption{font-size:9px}
   .strip-row{max-width:44vw;padding:2px 10px 0}
