@@ -32,6 +32,15 @@
     watched.forEach(el => io.observe(el));
   };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', watchDock); else setTimeout(watchDock);
+  // На телефоне первый экран без плавающих плашок: «Мои образцы» и «Движение» появляются, как только человек начал
+  // листать (метка на 120 точек ниже верха страницы ушла из вида). Без обработчика прокрутки — правило iPhone.
+  if ('IntersectionObserver' in window) {
+    const mark = document.createElement('div');
+    mark.setAttribute('aria-hidden', 'true');
+    mark.style.cssText = 'position:absolute;top:120px;left:0;width:1px;height:1px;pointer-events:none';
+    document.body.append(mark);
+    new IntersectionObserver(([e]) => document.body.classList.toggle('ffm-scrolled', !e.isIntersecting && e.boundingClientRect.top < 0)).observe(mark);
+  }
   const detail = document.createElement('dialog');
   detail.id = 'ffm-detail'; detail.className = 'ffm-dialog ffm-detail';
   detail.setAttribute('aria-labelledby','ffm-name');

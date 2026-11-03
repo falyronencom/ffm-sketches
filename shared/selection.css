@@ -53,6 +53,11 @@ body:has(.ffm-dialog[open])>.ffm-sample-dock{visibility:hidden}
 .ffm-sample-dock.ffm-dock-off{opacity:0;transform:translateY(12px);pointer-events:none}
 /* Внизу страницы кнопки «Движение» и «наверх» не должны закрывать последние строки футера */
 [data-ffm-variant] footer.ftr::after{content:"";display:block;height:88px}
+/* Телефон (до 899 точек): на первом экране плашек нет, пока человек не начал листать (слово Координатора 03.11.2026) */
+@media(max-width:899px){
+  [data-ffm-variant] .motion-tools{transition:opacity .25s,transform .25s}
+  body[data-ffm-variant]:not(.ffm-scrolled)>.ffm-sample-dock,body[data-ffm-variant]:not(.ffm-scrolled) .motion-tools{opacity:0;transform:translateY(12px);pointer-events:none}
+}
 .ffm-board{width:min(640px,calc(100% - 80px))}
 .ffm-board-content{padding:48px 40px 36px}
 .ffm-board h2{font-size:48px}
