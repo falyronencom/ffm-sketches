@@ -18,6 +18,20 @@
   dock.type = 'button'; dock.className = 'ffm-sample-dock'; dock.dataset.samples = '';
   dock.innerHTML = 'Мои образцы <span data-sample-count>0</span> <span aria-hidden="true">↗</span>';
   document.body.append(dock);
+  // Один счётчик образцов на экране: пока виден счётчик в шапке или футер, плавающая плашка спрятана
+  // (иначе на странице два «Мои образцы», а внизу плашка закрывает строки футера).
+  // Счётчик в шапке страницы варианта может появиться позже этого скрипта — смотрим после загрузки разметки.
+  const watchDock = () => {
+    if (!('IntersectionObserver' in window)) return;
+    const watched = [...document.querySelectorAll('header [data-samples], .topbar [data-samples], footer')];
+    const seen = new Set();
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => e.isIntersecting ? seen.add(e.target) : seen.delete(e.target));
+      dock.classList.toggle('ffm-dock-off', seen.size > 0);
+    });
+    watched.forEach(el => io.observe(el));
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', watchDock); else setTimeout(watchDock);
   const detail = document.createElement('dialog');
   detail.id = 'ffm-detail'; detail.className = 'ffm-dialog ffm-detail';
   detail.setAttribute('aria-labelledby','ffm-name');

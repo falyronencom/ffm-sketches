@@ -1,0 +1,21 @@
+/* 03.11.2026 — вариант 3 «От цвета к ткани»: стена оттенков — весь первый экран; заголовок, подсветка коллекции и
+   легенда — в небольшой панели поверх стены (компьютер от 1200 точек). Чистый белый и нейтральный серый вместо
+   тёплого молочного — говорят только оттенки. Номера оттенков и цифры — моноширинным шрифтом. */
+:root{--bg2:#f5f5f5;--line:#e3e3e3}
+body{background:#fff}
+.num,.chip em,.htag,[data-ffm-variant=v3] .ffm-shade span,#ffm-shade-count,#ffm-wall-status,#ffm-picker-count{font-family:'IBM Plex Mono',ui-monospace,Consolas,monospace;font-variant-numeric:tabular-nums;letter-spacing:0}
+.hero-tag .h1{text-transform:none}
+.hero-link{display:inline-flex;gap:10px;align-items:center;margin-top:18px;padding-bottom:6px;border-bottom:1px solid currentColor;font:500 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
+@media (min-width:1200px){
+  .hero-tag{left:40px;bottom:40px;width:410px;padding:30px 32px 28px}
+  .hero-tag .h1{font-size:54px;line-height:1}
+  .hero-tag .lead{font-size:15px;margin-top:12px}
+  .hero-tag .ffm-wall-tools{display:flex;flex-wrap:wrap;gap:8px 12px;max-width:none;margin:0;padding:20px 0 0;background:transparent}
+  .hero-tag .ffm-wall-field{flex:1 1 100%;max-width:none;min-width:0}
+  .hero-tag #ffm-wall-status{flex:1;font-size:12px;line-height:1.4;color:var(--mute);margin:0}
+  .hero-tag .wall-hint{display:flex;flex-direction:column;gap:2px;margin:0;padding:12px 0 0;font-size:12px}
+  /* при подсветке коллекции панель не прячется, а сжимается до выбора коллекции — иначе не снять подсветку */
+  .pal-hero:has(.wall[data-highlight-collection]) .hero-tag{visibility:visible;pointer-events:auto}
+  .pal-hero:has(.wall[data-highlight-collection]) .hero-tag :is(.kicker,.h1,.lead,.hero-link,.wall-hint){display:none}
+  .pal-hero:has(.wall[data-highlight-collection]) .hero-tag .ffm-wall-tools{padding-top:0}
+}

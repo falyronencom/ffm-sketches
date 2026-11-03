@@ -49,6 +49,10 @@
 .ffm-sample-dock{position:fixed;z-index:70;bottom:24px;left:24px;display:flex;gap:16px;align-items:center;min-height:48px;padding:12px 20px;border:1px solid #d8d5cf;background:#fffffff5;color:#1a1a1a;box-shadow:0 4px 24px #0001;font:400 14px/1.5 var(--sans,'Jost','Segoe UI',sans-serif)}
 .ffm-sample-dock [data-sample-count]{display:grid;place-items:center;min-width:24px;min-height:24px;background:#f0eee9}
 body:has(.ffm-dialog[open])>.ffm-sample-dock{visibility:hidden}
+.ffm-sample-dock{transition:opacity .25s,transform .25s}
+.ffm-sample-dock.ffm-dock-off{opacity:0;transform:translateY(12px);pointer-events:none}
+/* Внизу страницы кнопки «Движение» и «наверх» не должны закрывать последние строки футера */
+[data-ffm-variant] footer.ftr::after{content:"";display:block;height:88px}
 .ffm-board{width:min(640px,calc(100% - 80px))}
 .ffm-board-content{padding:48px 40px 36px}
 .ffm-board h2{font-size:48px}

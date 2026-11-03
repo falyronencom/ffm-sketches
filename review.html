@@ -16,11 +16,14 @@
     section{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px;margin:48px 0}
     a{color:inherit;text-decoration:none;background:#fff;border:1px solid #dedbd5;display:flex;flex-direction:column;min-width:0}
     a img{display:block;width:100%;aspect-ratio:7/5;object-fit:cover}
-    a .mosaic-preview{object-fit:contain;background:#e8e5df;padding:12px}
+    a .mosaic-preview{object-fit:contain;background:#ede6da;padding:12px}
     a div{display:flex;flex-direction:column;flex:1;padding:24px}
     h2{font:400 28px/1.2 Georgia,serif;margin:12px 0}
     a p{font-size:14px;color:#625f59;margin:0 0 24px}
     a strong{display:block;margin-top:auto;font-size:14px;font-weight:500}
+    .how{max-width:720px;margin-top:28px;padding:18px 22px;background:#fff;border:1px solid #dedbd5;font-size:15px}
+    .how b{font-weight:600}
+    a .mood{color:#1a1a1a;font-size:15px;margin-bottom:10px}
     a:hover{outline:1px solid #1a1a1a}
     a:focus-visible{outline:3px solid #1a1a1a;outline-offset:4px}
     footer{font-size:13px;color:#625f59;max-width:740px}
@@ -35,27 +38,28 @@
       <small>FFM / Fabric’s · рабочие макеты</small>
       <h1>Пять способов выбрать<br>свою ткань</h1>
       <p>Коллекция, оттенок и личная подборка образцов — в индивидуальном оформлении каждого варианта.</p>
+      <p class="how"><b>Как смотреть.</b> Откройте каждый вариант и пролистайте главную до конца — по 1–2 минуты на вариант. Удобнее с компьютера, на телефоне тоже работает. Потом напишите, какой ближе и что понравилось в других: удачные находки можно перенести в выбранный вариант.</p>
     </header>
     <section aria-label="Пять вариантов макета">
       <a href="live/">
         <img src="live/assets/brand_photos/Festa_DSC_2700.jpg" alt="Фактура ткани Festa">
-        <div><small>Вариант 01</small><h2>Спокойная галерея</h2><p>Светлая карточка, крупный образец, тонкие линии и сдержанная типографика.</p><strong>Открыть макет ↗</strong></div>
+        <div><small>Вариант 01</small><h2>Спокойная галерея</h2><p class="mood">Тихо и дорого — как в галерее.</p><p>Светлый фон, много воздуха, крупный образец и сдержанная типографика.</p><strong>Открыть макет ↗</strong></div>
       </a>
       <a href="v2/live/">
-        <img src="v2/live/assets/brand_photos/Betsy_DSC_2641.jpg" alt="Драпировка ткани Betsy">
-        <div><small>Вариант 02</small><h2>Ткань во весь экран</h2><p>Выразительная фотография во весь экран и мягкое движение при прокрутке.</p><strong>Открыть макет ↗</strong></div>
+        <img src="v2/live/assets/brand_photos/Brabus_IMG_7322.jpg" alt="Велюр Brabus крупным планом">
+        <div><small>Вариант 02</small><h2>Ткань во весь экран</h2><p class="mood">Ткань крупно, как в журнале.</p><p>Велюр во весь первый экран, тёмные тона и интерьеры в тканях, мягкое движение при прокрутке.</p><strong>Открыть макет ↗</strong></div>
       </a>
       <a href="v3/live/">
         <img src="v3/live/assets/palette/wall_d.jpg" alt="Цветовая стена тканей">
-        <div><small>Вариант 03</small><h2>От цвета к ткани</h2><p>Точный переход с цветовой стены, кресла-мозаики и вешалок коллекций.</p><strong>Открыть макет ↗</strong></div>
+        <div><small>Вариант 03</small><h2>От цвета к ткани</h2><p class="mood">Начинаете с цвета, а не с названия.</p><p>Все оттенки каталога одной стеной: нажмите на цвет — откроется коллекция. Кресло-мозаика и вешалки коллекций.</p><strong>Открыть макет ↗</strong></div>
       </a>
       <a href="v4/">
         <img class="mosaic-preview" src="review-assets/textile-mosaic.jpg" alt="Шесть геометрических фигур из настоящих фотографий тканей">
-        <div><small>Вариант 04</small><h2>Текстильная мозаика</h2><p>Фигуры из настоящих тканей складываются в композицию. Шесть коллекций, выбор оттенка и своя подборка.</p><strong>Открыть макет ↗</strong></div>
+        <div><small>Вариант 04</small><h2>Текстильная мозаика</h2><p class="mood">Тепло, смело, современно.</p><p>Песочный фон и терракотовые акценты, ткани складываются в коллаж. Шесть коллекций, выбор оттенка и своя подборка.</p><strong>Открыть макет ↗</strong></div>
       </a>
       <a href="v5/?intro=1">
         <img src="review-assets/fabric-album.jpg" alt="Разворот альбома: все коллекции образцами и содержание по разделам">
-        <div><small>Вариант 05</small><h2>Альбом тканей</h2><p>Книга-образцовник: все 53 коллекции по разделам, страницы листаются, а отмеченные образцы собираются на последнем развороте.</p><strong>Открыть макет ↗</strong></div>
+        <div><small>Вариант 05</small><h2>Альбом тканей</h2><p class="mood">Как образцовник в руках.</p><p>Книга, которую листаешь: все коллекции по разделам, закладки, а отмеченные образцы собираются на последнем развороте.</p><strong>Открыть макет ↗</strong></div>
       </a>
     </section>
     <footer>Откройте ткань на главной или найдите коллекцию по названию. Меняйте оттенки, добавляйте образцы и скопируйте список из подборки. В вариантах 1–3 и 5 подборка сохраняется в этом браузере; в четвёртом — на время просмотра страницы. Отправка заявки в демонстрацию не входит.</footer>
