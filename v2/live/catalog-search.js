@@ -28,7 +28,7 @@
       message.textContent=(num?'Оттенок':'Коллекцию')+' «'+raw+'» не нашли. Проверьте название и номер или выберите вид ткани ниже.';
     }else if(matches.length>8){
       message.hidden=false;message.append('Найдено коллекций: '+matches.length+'. ');
-      const all=document.createElement('a');all.href='#catalog';all.dataset.catalog='all';all.dataset.catalogQuery=raw;all.textContent='Показать все результаты ︎';message.append(all);
+      const all=document.createElement('a');all.href='#catalog';all.dataset.catalog='all';all.dataset.catalogQuery=raw;all.textContent='Показать все результаты ↗︎';message.append(all);
     }
     return matches;
   }

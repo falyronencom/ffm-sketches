@@ -104,7 +104,7 @@
   $('#ffm-note').after(jump);
   const similar=document.createElement('section');similar.id='ffm-similar';similar.className='ffm-similar';similar.hidden=true;
   similar.setAttribute('aria-labelledby','ffm-similar-title');
-  similar.innerHTML=`<div class="ffm-similar-heading"><div><h3 id="ffm-similar-title" tabindex="-1">Близкие цвета в других коллекциях</h3><p>Сравните фактуры и откройте понравившийся оттенок.</p></div><button type="button" id="ffm-highlight-current">Эта коллекция на стене ︎</button></div><p class="ffm-similar-note">Подбор по цвету фотографий. Перед заказом сверяйте ткань вживую.</p><div class="ffm-compare-layout"><div id="ffm-compare-reference"></div><div><div id="ffm-related-grid"></div><p id="ffm-related-empty" hidden></p></div></div>`;
+  similar.innerHTML=`<div class="ffm-similar-heading"><div><h3 id="ffm-similar-title" tabindex="-1">Близкие цвета в других коллекциях</h3><p>Сравните фактуры и откройте понравившийся оттенок.</p></div><button type="button" id="ffm-highlight-current">Эта коллекция на стене ↗︎</button></div><p class="ffm-similar-note">Подбор по цвету фотографий. Перед заказом сверяйте ткань вживую.</p><div class="ffm-compare-layout"><div id="ffm-compare-reference"></div><div><div id="ffm-related-grid"></div><p id="ffm-related-empty" hidden></p></div></div>`;
   detail.append(similar);
   let current;
   function closest(collection,shade){
@@ -130,7 +130,7 @@
     current={collection:c,shade:s};similar.hidden=false;
     $('#ffm-compare-reference').innerHTML=`<span>Выбранный образец</span><img src="${src(s.flat)}" alt="${esc(c.name+' '+s.label)} — фактура"><b>${esc(c.name+' '+s.label)}</b><small>${esc(c.cat)}</small>`;
     const matches=closest(c,s);
-    $('#ffm-related-grid').innerHTML=matches.map(m=>`<button type="button" class="ffm-related-card" data-near-name="${esc(m.name)}" data-near-shade="${esc(m.shade.label)}" aria-label="Открыть ${esc(m.name+' '+m.shade.label)}"><img src="${src(m.shade.flat)}" alt="" loading="lazy"><b>${esc(m.name+' '+m.shade.label)}</b><span>${esc(m.cat)}</span><span class="ffm-related-open">Открыть ︎</span></button>`).join('');
+    $('#ffm-related-grid').innerHTML=matches.map(m=>`<button type="button" class="ffm-related-card" data-near-name="${esc(m.name)}" data-near-shade="${esc(m.shade.label)}" aria-label="Открыть ${esc(m.name+' '+m.shade.label)}"><img src="${src(m.shade.flat)}" alt="" loading="lazy"><b>${esc(m.name+' '+m.shade.label)}</b><span>${esc(m.cat)}</span><span class="ffm-related-open">Открыть ↗︎</span></button>`).join('');
     $('#ffm-related-empty').hidden=!!matches.length;
     $('#ffm-related-empty').textContent=s.patterned?'Для выраженного рисунка подбор по одному цвету неточен. Посмотрите другие оттенки этой коллекции.':'Достаточно близких оттенков в других коллекциях в демонстрации не найдено.';
     jump.textContent='Сравнить близкие цвета ↓';
