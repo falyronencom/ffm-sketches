@@ -16,7 +16,7 @@
 
   const dock = document.createElement('button');
   dock.type = 'button'; dock.className = 'ffm-sample-dock'; dock.dataset.samples = '';
-  dock.innerHTML = 'Мои образцы <span data-sample-count>0</span> <span aria-hidden="true">↗</span>';
+  dock.innerHTML = 'Мои образцы <span data-sample-count>0</span> <span aria-hidden="true">︎</span>';
   document.body.append(dock);
   // Один счётчик образцов на экране: пока виден счётчик в шапке или футер, плавающая плашка спрятана
   // (иначе на странице два «Мои образцы», а внизу плашка закрывает строки футера).
@@ -42,12 +42,12 @@
     <div class="ffm-palette-heading"><h3 id="ffm-shade-name" aria-live="polite"></h3><span id="ffm-shade-count"></span></div>
     <div id="ffm-shades" class="ffm-shades" role="group" aria-label="Оттенки коллекции"></div><p id="ffm-note" class="ffm-note"></p>
     <dl id="ffm-specs" class="ffm-specs"></dl><p id="ffm-catalog-link" class="ffm-catalog-link ffm-catalog-later">Полная страница коллекции — на новом сайте</p>
-    <div class="ffm-actions"><button type="button" id="ffm-add" class="ffm-primary">Добавить образец +</button><button type="button" data-samples class="ffm-secondary">Мои образцы <span data-sample-count>0</span> ↗</button></div>
+    <div class="ffm-actions"><button type="button" id="ffm-add" class="ffm-primary">Добавить образец +</button><button type="button" data-samples class="ffm-secondary">Мои образцы <span data-sample-count>0</span> ︎</button></div>
     <p class="ffm-footnote">Сохраните оттенки и скопируйте список для консультанта. Цвет ткани лучше сверить по образцу вживую.</p><p id="ffm-detail-status" class="ffm-status" role="status"></p></section></div>`;
   const samples = document.createElement('dialog');
   samples.id = 'ffm-board'; samples.className = 'ffm-dialog ffm-board';
   samples.setAttribute('aria-labelledby','ffm-board-title');
-  samples.innerHTML = `<button class="ffm-close" type="button" data-ffm-close aria-label="Закрыть образцы">×</button><div class="ffm-board-content"><p class="ffm-eyebrow">Fabric’s · ваша подборка</p><h2 id="ffm-board-title">Мои образцы</h2><p class="ffm-board-intro">Соберите ткани для вашего проекта.</p><div id="ffm-board-empty"><p>В подборке пока нет образцов.</p><p>Откройте коллекцию, выберите оттенок и нажмите «Добавить образец».</p></div><ul id="ffm-board-items"></ul><button type="button" id="ffm-copy" class="ffm-primary">Скопировать список ↗</button><p id="ffm-copy-status" class="ffm-status" role="status"></p><textarea id="ffm-copy-fallback" readonly hidden aria-label="Список для копирования"></textarea><p class="ffm-footnote">Это демонстрационная подборка. Заявка не отправляется.</p></div>`;
+  samples.innerHTML = `<button class="ffm-close" type="button" data-ffm-close aria-label="Закрыть образцы">×</button><div class="ffm-board-content"><p class="ffm-eyebrow">Fabric’s · ваша подборка</p><h2 id="ffm-board-title">Мои образцы</h2><p class="ffm-board-intro">Соберите ткани для вашего проекта.</p><div id="ffm-board-empty"><p>В подборке пока нет образцов.</p><p>Откройте коллекцию, выберите оттенок и нажмите «Добавить образец».</p></div><ul id="ffm-board-items"></ul><button type="button" id="ffm-copy" class="ffm-primary">Скопировать список ︎</button><p id="ffm-copy-status" class="ffm-status" role="status"></p><textarea id="ffm-copy-fallback" readonly hidden aria-label="Список для копирования"></textarea><p class="ffm-footnote">Это демонстрационная подборка. Заявка не отправляется.</p></div>`;
   document.body.append(detail, samples);
   const dialogs = [detail, samples];
   let openCatalog;
@@ -71,7 +71,7 @@
       $('#ffm-catalog-count').textContent=quantity(hits.length,'коллекция','коллекции','коллекций')+' · '+quantity(hits.reduce((n,c)=>n+c.shades.length,0),'оттенок','оттенка','оттенков');
       $('#ffm-catalog-grid').innerHTML=hits.map(c=>{
         const shade=num?c.shades.find(s=>same(s.label,num)):null;
-        return `<button type="button" class="ffm-catalog-card" data-collection="${esc(c.name)}" ${shade?`data-shade="${esc(shade.label)}"`:''} aria-label="Открыть ${esc(c.name+(shade?' '+shade.label:''))}"><span class="ffm-catalog-photo"><img src="${src(shade?shade.draped||shade.flat:c.photo||c.shades[0].flat)}" alt="${esc(c.name)} — ${esc(c.cat.toLowerCase())}" loading="lazy"><span aria-hidden="true">Оттенки ↗</span></span><span class="ffm-catalog-card-name">${esc(c.name+(shade?' '+shade.label:''))}</span><span class="ffm-catalog-card-meta">${esc(c.cat)} · ${quantity(c.shades.length,'оттенок','оттенка','оттенков')}</span><span class="ffm-catalog-preview" aria-hidden="true">${c.shades.slice(0,6).map(s=>`<img src="${src(s.flat)}" alt="" loading="lazy">`).join('')}</span></button>`;
+        return `<button type="button" class="ffm-catalog-card" data-collection="${esc(c.name)}" ${shade?`data-shade="${esc(shade.label)}"`:''} aria-label="Открыть ${esc(c.name+(shade?' '+shade.label:''))}"><span class="ffm-catalog-photo"><img src="${src(shade?shade.draped||shade.flat:c.photo||c.shades[0].flat)}" alt="${esc(c.name)} — ${esc(c.cat.toLowerCase())}" loading="lazy"><span aria-hidden="true">Оттенки ︎</span></span><span class="ffm-catalog-card-name">${esc(c.name+(shade?' '+shade.label:''))}</span><span class="ffm-catalog-card-meta">${esc(c.cat)} · ${quantity(c.shades.length,'оттенок','оттенка','оттенков')}</span><span class="ffm-catalog-preview" aria-hidden="true">${c.shades.slice(0,6).map(s=>`<img src="${src(s.flat)}" alt="" loading="lazy">`).join('')}</span></button>`;
       }).join('');
       $('#ffm-catalog-empty').hidden=!!hits.length;
       catalog.querySelectorAll('[data-catalog-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.catalogFilter===category)));
